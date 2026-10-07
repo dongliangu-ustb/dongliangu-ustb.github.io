@@ -10,8 +10,8 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Serif+SC:wght@400;500&display=swap"
     />
-    <link rel="stylesheet" href="hark.css" />
-    <link rel="stylesheet" href="hark-hero.css" />
+    <link rel="stylesheet" href="site.css" />
+    <link rel="stylesheet" href="hero-style.css" />
     <style>
       :root {
         --x-serif: "Cormorant Garamond", "Noto Serif SC", Georgia, serif;
@@ -42,7 +42,7 @@
         border-radius: var(--r-pill);
         background: var(--fill-primary-on);
         border: 1px solid var(--stroke-primary);
-        box-shadow: var(--hark-shadow);
+        box-shadow: var(--site-shadow);
       }
       .x-lang button {
         min-width: var(--tap);
@@ -110,6 +110,27 @@
         .x-pubs li { grid-template-columns: 32px minmax(0, 1fr); gap: 4px 10px; }
       }
 
+      /* Patents */
+      .x-patents { grid-column: 1 / -1; }
+      .x-patents > p { margin: 0 0 8px; color: var(--text-secondary); }
+      .x-ptgroup + .x-ptgroup { margin-top: 28px; }
+      .x-ptgroup h4 {
+        margin: 16px 0 0;
+        padding-bottom: 8px;
+        border-bottom: 1px solid var(--stroke-primary);
+        font-family: var(--x-serif);
+        font-weight: 500;
+        font-size: 22px;
+        line-height: 1.2;
+        color: var(--x-accent);
+      }
+      .x-patents .x-ptgroup li { padding: 10px 0; border-bottom: 1px solid var(--stroke-secondary); }
+      .x-patents [hidden] { display: none; }
+      .x-pt-title { margin: 0; font: var(--type-body); font-weight: var(--weight-medium); color: var(--text-primary); }
+      .x-pt-meta { margin: 4px 0 0; font: var(--type-caption); color: var(--text-secondary); display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; }
+      .x-pt-meta .link { font-family: "Geist Mono", monospace; }
+      .x-pt-toggle { margin-top: 14px; }
+
       /* Group life */
       .x-life h3 { font: var(--type-heading); margin: 0 0 6px; }
       .x-photos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin: 16px 0 0; align-items: start; }
@@ -142,7 +163,7 @@
             </div>
           </div>
           <aside class="callout" aria-label="Contact">
-            <p class="callout__head"><span class="hark-mark" data-size="16"></span> <span data-zh="正在招生">Recruiting</span></p>
+            <p class="callout__head"><span data-zh="正在招生">Recruiting</span></p>
             <p class="callout__lead" data-zh="<strong>欢迎合作与加入。</strong>课题组招收博士后、博士及硕士研究生。">
               <strong>Open to collaboration.</strong> The group recruits postdocs, PhD and master's students.
             </p>
@@ -367,15 +388,60 @@
                 <li data-zh="参与 ISO/TC71/SC5/WG9（AWI 22556）工作">Active in ISO/TC71/SC5/WG9 (AWI 22556)</li>
               </ul>
             </div>
-            <div>
+            <div class="x-patents">
               <h3 data-zh="发明专利">Patents</h3>
-              <p data-zh="以第一发明人获授权的中国发明专利，例如：">Granted Chinese invention patents as first inventor include:</p>
-              <ul>
-                <li data-zh="基于倾斜摄影的 CFD 模型构建 <small>CN118965519A</small>">CFD model construction from oblique photography <small>CN118965519A</small></li>
-                <li data-zh="基于街景的城市行道树几何信息提取 <small>CN119516387A</small>">Street-view-based extraction of urban street-tree geometry <small>CN119516387A</small></li>
-                <li data-zh="基于物理模型的建筑群风灾保险费率定价 <small>CN116523663A</small>">Physics-based wind-disaster insurance premium pricing for building clusters <small>CN116523663A</small></li>
-                <li data-zh="基于机器视觉的工作相关肌肉骨骼疾病（WMSD）风险实时监测 <small>CN116206369A</small>">Real-time WMSD risk monitoring via machine vision <small>CN116206369A</small></li>
-              </ul>
+              <p data-zh="中国发明专利（清华大学、北京科技大学）。">Chinese invention patents (Tsinghua University and USTB).</p>
+              <div class="x-ptgroup">
+                <h4 data-zh="已授权发明专利">Granted invention patents</h4>
+                <ul>
+                  <li><p class="x-pt-title" data-zh="基于点云大语言模型的裂缝特征提取与量化方法及装置">Crack characteristic extraction and quantification method and device based on point cloud large language model</p><p class="x-pt-meta"><a class="link" href="https://patents.google.com/patent/CN121259617B" target="_blank" rel="noopener">CN121259617B</a> · 2025 · <span data-zh="北京科技大学">USTB</span></p></li>
+                  <li><p class="x-pt-title" data-zh="一种场地-地铁隧道网络-建筑震害分析方法及装置">A method and apparatus for analyzing seismic damage to buildings in a site-subway tunnel network</p><p class="x-pt-meta"><a class="link" href="https://patents.google.com/patent/CN121389641B" target="_blank" rel="noopener">CN121389641B</a> · 2025 · <span data-zh="北京科技大学">USTB</span></p></li>
+                  <li><p class="x-pt-title" data-zh="基于风场约束的无人机建筑巡检航线调整方法、系统及存储介质">Wind-constrained UAV building inspection route adjustment method, system, and storage medium</p><p class="x-pt-meta"><a class="link" href="https://patents.google.com/patent/CN121028837B" target="_blank" rel="noopener">CN121028837B</a> · 2025 · <span data-zh="哈工大(深圳)、北京科技大学、西安建筑科技大学">HIT (Shenzhen), USTB &amp; XAUAT</span></p></li>
+                  <li><p class="x-pt-title" data-zh="基于单目摄像头结合深度估计的涉水人员安全性检测方法">Wading personnel safety detection method based on monocular camera combined depth estimation</p><p class="x-pt-meta"><a class="link" href="https://patents.google.com/patent/CN121214194B" target="_blank" rel="noopener">CN121214194B</a> · 2025 · <span data-zh="北京科技大学">USTB</span></p></li>
+                  <li><p class="x-pt-title" data-zh="城市建筑群立体功能分区及楼层人口动态分布方法及装置">Urban building group three-dimensional function partition and floor population dynamic distribution method and device</p><p class="x-pt-meta"><a class="link" href="https://patents.google.com/patent/CN120780775B" target="_blank" rel="noopener">CN120780775B</a> · 2025 · <span data-zh="北京科技大学">USTB</span></p></li>
+                  <li><p class="x-pt-title" data-zh="一种基于SAR与光学影像协同学习的变化检测方法及装置">A change detection method and device based on SAR and optical image collaborative learning</p><p class="x-pt-meta"><a class="link" href="https://patents.google.com/patent/CN120451773B" target="_blank" rel="noopener">CN120451773B</a> · 2025 · <span data-zh="北京科技大学">USTB</span></p></li>
+                  <li><p class="x-pt-title" data-zh="地震及次生火灾耦合作用下建筑经济损失评估方法及装置">Methods and devices for assessing economic losses of buildings under the coupled effects of earthquakes and secondary fires</p><p class="x-pt-meta"><a class="link" href="https://patents.google.com/patent/CN120373011B" target="_blank" rel="noopener">CN120373011B</a> · 2025 · <span data-zh="北京科技大学">USTB</span></p></li>
+                  <li><p class="x-pt-title" data-zh="基于街景数据的城市行道树几何和地理信息自动获取方法">Automatic acquisition method of geometric and geographic information of urban street trees based on street view data</p><p class="x-pt-meta"><a class="link" href="https://patents.google.com/patent/CN119516387B" target="_blank" rel="noopener">CN119516387B</a> · 2024 · <span data-zh="北京科技大学">USTB</span> <span class="pill" data-zh="第一发明人">First inventor</span></p></li>
+                  <li class="x-pt-more" hidden><p class="x-pt-title" data-zh="基于历史街景图片的城市非设防建筑加固识别方法及装置">Urban non-fortified building reinforcement identification method and device based on historical street view images</p><p class="x-pt-meta"><a class="link" href="https://patents.google.com/patent/CN119418207B" target="_blank" rel="noopener">CN119418207B</a> · 2024 · <span data-zh="北京科技大学">USTB</span></p></li>
+                  <li class="x-pt-more" hidden><p class="x-pt-title" data-zh="一种城市水电管网智能建模方法及系统">A method and system for intelligent modeling of urban water and electricity pipe networks</p><p class="x-pt-meta"><a class="link" href="https://patents.google.com/patent/CN119004725B" target="_blank" rel="noopener">CN119004725B</a> · 2024 · <span data-zh="北京科技大学">USTB</span></p></li>
+                  <li class="x-pt-more" hidden><p class="x-pt-title" data-zh="一种考虑人员避难行为的地震坠物动态人员伤亡评估方法">Dynamic casualty assessment method for earthquake falling objects considering personnel refuge behavior</p><p class="x-pt-meta"><a class="link" href="https://patents.google.com/patent/CN119337556B" target="_blank" rel="noopener">CN119337556B</a> · 2024 · <span data-zh="北京科技大学">USTB</span></p></li>
+                  <li class="x-pt-more" hidden><p class="x-pt-title" data-zh="一种基于数字孪生的建筑群外表面空鼓定位方法及系统">Digital twin-based hollowing localization method and system for building group exterior surfaces</p><p class="x-pt-meta"><a class="link" href="https://patents.google.com/patent/CN119044993B" target="_blank" rel="noopener">CN119044993B</a> · 2024 · <span data-zh="清华大学、北京科技大学">Tsinghua University &amp; USTB</span></p></li>
+                  <li class="x-pt-more" hidden><p class="x-pt-title" data-zh="一种城市埋地燃气管网地震灾害链风险分析方法">Urban buried gas pipe network earthquake disaster chain risk analysis method</p><p class="x-pt-meta"><a class="link" href="https://patents.google.com/patent/CN119047823B" target="_blank" rel="noopener">CN119047823B</a> · 2024 · <span data-zh="北京科技大学">USTB</span></p></li>
+                  <li class="x-pt-more" hidden><p class="x-pt-title" data-zh="基于倾斜摄影的三维计算流体力学模型构建方法与装置">Three-dimensional CFD model construction method and device based on oblique photography</p><p class="x-pt-meta"><a class="link" href="https://patents.google.com/patent/CN118965519B" target="_blank" rel="noopener">CN118965519B</a> · 2024 · <span data-zh="北京科技大学">USTB</span> <span class="pill" data-zh="第一发明人">First inventor</span></p></li>
+                  <li class="x-pt-more" hidden><p class="x-pt-title" data-zh="一种精细地震动场快速构建方法及装置">A method and device for quickly constructing a fine seismic ground-motion field</p><p class="x-pt-meta"><a class="link" href="https://patents.google.com/patent/CN118426042B" target="_blank" rel="noopener">CN118426042B</a> · 2024 · <span data-zh="北京科技大学">USTB</span></p></li>
+                  <li class="x-pt-more" hidden><p class="x-pt-title" data-zh="一种室内烟雾遮挡下的疏散人员识别方法及装置">Method and device for identifying evacuees under indoor smoke occlusion</p><p class="x-pt-meta"><a class="link" href="https://patents.google.com/patent/CN118196700B" target="_blank" rel="noopener">CN118196700B</a> · 2024 · <span data-zh="北京科技大学">USTB</span></p></li>
+                  <li class="x-pt-more" hidden><p class="x-pt-title" data-zh="一种基于街景图片的建筑群外立面窗户定位方法及装置">A method and device for locating windows on building group facades based on street view images</p><p class="x-pt-meta"><a class="link" href="https://patents.google.com/patent/CN117115243B" target="_blank" rel="noopener">CN117115243B</a> · 2023 · <span data-zh="北京科技大学">USTB</span> <span class="pill" data-zh="第一发明人">First inventor</span></p></li>
+                  <li class="x-pt-more" hidden><p class="x-pt-title" data-zh="多模态融合感知的城市既有建筑广域监测预警方法及装置">Wide-area monitoring and early warning method and device for existing urban buildings with multimodal fusion sensing</p><p class="x-pt-meta"><a class="link" href="https://patents.google.com/patent/CN116739357B" target="_blank" rel="noopener">CN116739357B</a> · 2023 · <span data-zh="北京科技大学">USTB</span> <span class="pill" data-zh="第一发明人">First inventor</span></p></li>
+                  <li class="x-pt-more" hidden><p class="x-pt-title" data-zh="基于深度学习的倾斜摄影模型全要素单体化方法及装置">Deep learning-based all-element individualization method and device for oblique photography models</p><p class="x-pt-meta"><a class="link" href="https://patents.google.com/patent/CN116597150B" target="_blank" rel="noopener">CN116597150B</a> · 2023 · <span data-zh="北京科技大学">USTB</span> <span class="pill" data-zh="第一发明人">First inventor</span></p></li>
+                  <li class="x-pt-more" hidden><p class="x-pt-title" data-zh="基于物理模型的城市建筑群风灾保险保费厘定方法及装置">Physics-based method and device for pricing wind disaster insurance premiums of urban building groups</p><p class="x-pt-meta"><a class="link" href="https://patents.google.com/patent/CN116523663B" target="_blank" rel="noopener">CN116523663B</a> · 2023 · <span data-zh="北京科技大学">USTB</span> <span class="pill" data-zh="第一发明人">First inventor</span></p></li>
+                  <li class="x-pt-more" hidden><p class="x-pt-title" data-zh="基于数据融合和机器视觉的人体姿态数据获取方法及装置">Human posture data acquisition method and device based on data fusion and machine vision</p><p class="x-pt-meta"><a class="link" href="https://patents.google.com/patent/CN116206369B" target="_blank" rel="noopener">CN116206369B</a> · 2023 · <span data-zh="北京科技大学">USTB</span> <span class="pill" data-zh="第一发明人">First inventor</span></p></li>
+                  <li class="x-pt-more" hidden><p class="x-pt-title" data-zh="基于地震情景下城市电梯内受困人数预测方法及系统">Method and system for predicting the number of people trapped in urban elevators under earthquake scenarios</p><p class="x-pt-meta"><a class="link" href="https://patents.google.com/patent/CN116362386B" target="_blank" rel="noopener">CN116362386B</a> · 2023 · <span data-zh="北京科技大学">USTB</span> <span class="pill" data-zh="第一发明人">First inventor</span></p></li>
+                  <li class="x-pt-more" hidden><p class="x-pt-title" data-zh="一种面向地图导航的树木花粉暴露度最小路径预测方法">A map navigation-oriented method for predicting the minimum tree pollen exposure path</p><p class="x-pt-meta"><a class="link" href="https://patents.google.com/patent/CN115860305B" target="_blank" rel="noopener">CN115860305B</a> · 2023 · <span data-zh="北京科技大学">USTB</span> <span class="pill" data-zh="第一发明人">First inventor</span></p></li>
+                  <li class="x-pt-more" hidden><p class="x-pt-title" data-zh="一种城市尺度下树木花粉浓度预测方法及装置">Tree pollen concentration prediction method and device at urban scale</p><p class="x-pt-meta"><a class="link" href="https://patents.google.com/patent/CN115828794B" target="_blank" rel="noopener">CN115828794B</a> · 2023 · <span data-zh="北京科技大学">USTB</span> <span class="pill" data-zh="第一发明人">First inventor</span></p></li>
+                  <li class="x-pt-more" hidden><p class="x-pt-title" data-zh="基于优化树木花粉浓度指标的城市绿化方法及装置">Urban greening method and device based on optimizing tree pollen concentration index</p><p class="x-pt-meta"><a class="link" href="https://patents.google.com/patent/CN115935855B" target="_blank" rel="noopener">CN115935855B</a> · 2023 · <span data-zh="北京科技大学">USTB</span> <span class="pill" data-zh="第一发明人">First inventor</span></p></li>
+                  <li class="x-pt-more" hidden><p class="x-pt-title" data-zh="面向城市区域的绿化树木风灾破坏风险近实时评估方法">Near-real-time assessment method for wind damage risk of urban green trees</p><p class="x-pt-meta"><a class="link" href="https://patents.google.com/patent/CN112381358B" target="_blank" rel="noopener">CN112381358B</a> · 2020 · <span data-zh="清华大学">Tsinghua University</span></p></li>
+                  <li class="x-pt-more" hidden><p class="x-pt-title" data-zh="模拟建筑室内火灾时的烟气扩散路径模型装置">Model device simulating smoke diffusion paths in indoor building fires</p><p class="x-pt-meta"><a class="link" href="https://patents.google.com/patent/CN110164286B" target="_blank" rel="noopener">CN110164286B</a> · 2019 · <span data-zh="清华大学">Tsinghua University</span></p></li>
+                </ul>
+                <button type="button" class="btn x-pt-toggle" aria-expanded="false" data-zh="展开全部">Show all</button>
+              </div>
+              <div class="x-ptgroup">
+                <h4 data-zh="已公开发明专利申请">Published applications</h4>
+                <ul>
+                  <li><p class="x-pt-title" data-zh="基于城市体检不完备信息的砌体住宅安全状态推演方法">Masonry house safety state deduction method based on incomplete urban physical examination information</p><p class="x-pt-meta"><a class="link" href="https://patents.google.com/patent/CN121834521A" target="_blank" rel="noopener">CN121834521A</a> · 2026 · <span data-zh="北京科技大学">USTB</span></p></li>
+                  <li><p class="x-pt-title" data-zh="一种基于小语言模型的城市内涝数据产品生成方法及装置">A method and apparatus for generating urban flooding data products based on a small language model</p><p class="x-pt-meta"><a class="link" href="https://patents.google.com/patent/CN121960487A" target="_blank" rel="noopener">CN121960487A</a> · 2026 · <span data-zh="北京科技大学">USTB</span></p></li>
+                  <li><p class="x-pt-title" data-zh="一种结合无人机与BIM的混凝土裂缝管理方法及装置">Concrete crack management method and device combining UAV and BIM</p><p class="x-pt-meta"><a class="link" href="https://patents.google.com/patent/CN122024091A" target="_blank" rel="noopener">CN122024091A</a> · 2025 · <span data-zh="北京科技大学">USTB</span></p></li>
+                  <li><p class="x-pt-title" data-zh="火灾烟气参数影响的人员疏散混合现实实验方法及系统">Mixed reality experiment method and system for personnel evacuation under fire smoke parameters</p><p class="x-pt-meta"><a class="link" href="https://patents.google.com/patent/CN121685885A" target="_blank" rel="noopener">CN121685885A</a> · 2025 · <span data-zh="北京科技大学">USTB</span></p></li>
+                  <li><p class="x-pt-title" data-zh="一种多人三维工效风险评估方法及装置">A method and apparatus for multi-person three-dimensional ergonomic risk assessment</p><p class="x-pt-meta"><a class="link" href="https://patents.google.com/patent/CN121582995A" target="_blank" rel="noopener">CN121582995A</a> · 2025 · <span data-zh="北京科技大学">USTB</span> <span class="pill" data-zh="第一发明人">First inventor</span></p></li>
+                  <li><p class="x-pt-title" data-zh="一种混凝土结构裂缝的预警方法及装置">Early warning method and device for concrete structure cracks</p><p class="x-pt-meta"><a class="link" href="https://patents.google.com/patent/CN121724905A" target="_blank" rel="noopener">CN121724905A</a> · 2025 · <span data-zh="北京科技大学">USTB</span></p></li>
+                  <li><p class="x-pt-title" data-zh="地震及次生火灾耦合的建筑群灾后恢复分析方法及系统">Post-disaster recovery analysis method and system for building groups under coupled earthquakes and secondary fires</p><p class="x-pt-meta"><a class="link" href="https://patents.google.com/patent/CN121435465A" target="_blank" rel="noopener">CN121435465A</a> · 2025 · <span data-zh="北京科技大学">USTB</span></p></li>
+                  <li><p class="x-pt-title" data-zh="一种城市地铁隧道震后困人数量分析方法及装置">A method and device for analyzing the number of people trapped in urban subway tunnels after earthquakes</p><p class="x-pt-meta"><a class="link" href="https://patents.google.com/patent/CN121189627A" target="_blank" rel="noopener">CN121189627A</a> · 2025 · <span data-zh="北京科技大学">USTB</span></p></li>
+                  <li class="x-pt-more" hidden><p class="x-pt-title" data-zh="一种建筑工人身体疲劳风险实时评估方法及装置">A real-time assessment method and device for construction workers' physical fatigue risk</p><p class="x-pt-meta"><a class="link" href="https://patents.google.com/patent/CN120853214A" target="_blank" rel="noopener">CN120853214A</a> · 2025 · <span data-zh="北京科技大学">USTB</span> <span class="pill" data-zh="第一发明人">First inventor</span></p></li>
+                  <li class="x-pt-more" hidden><p class="x-pt-title" data-zh="一种城市域大规模计算流体力学分析简化建模方法与装置">A simplified modeling method and device for large-scale urban CFD analysis</p><p class="x-pt-meta"><a class="link" href="https://patents.google.com/patent/CN119623323A" target="_blank" rel="noopener">CN119623323A</a> · 2024 · <span data-zh="北京科技大学">USTB</span> <span class="pill" data-zh="第一发明人">First inventor</span></p></li>
+                  <li class="x-pt-more" hidden><p class="x-pt-title" data-zh="结合双目相机与LiDAR的混凝土曲面结构裂缝定位与分析方法">Crack localization and analysis method for curved concrete structures combining binocular cameras and LiDAR</p><p class="x-pt-meta"><a class="link" href="https://patents.google.com/patent/CN118967813A" target="_blank" rel="noopener">CN118967813A</a> · 2024 · <span data-zh="北京科技大学">USTB</span></p></li>
+                  <li class="x-pt-more" hidden><p class="x-pt-title" data-zh="基于动力弹塑性和地面运动的地震破坏力评价方法及装置">Earthquake destructive power evaluation method and device based on nonlinear dynamic analysis and ground motion</p><p class="x-pt-meta"><a class="link" href="https://patents.google.com/patent/CN109063327A" target="_blank" rel="noopener">CN109063327A</a> · 2018 · <span data-zh="清华大学">Tsinghua University</span></p></li>
+                </ul>
+                <button type="button" class="btn x-pt-toggle" aria-expanded="false" data-zh="展开全部">Show all</button>
+              </div>
             </div>
           </div>
         </section>
@@ -441,10 +507,9 @@
       <footer class="foot">
         <p>© 2026 Donglian Gu</p>
         <nav aria-label="Back to sections" data-auto></nav>
-        <a class="badge" href="https://hark.com/" target="_blank" rel="noopener"><span class="hark-mark"></span><span>built by hark</span></a>
       </footer>
     </div>
-    <script src="hark.js"></script>
+    <script src="site.js"></script>
     <script>
       (function () {
         var root = document.documentElement;
@@ -474,6 +539,16 @@
         }
         document.querySelectorAll(".x-lang button").forEach(function (b) {
           b.addEventListener("click", function () { setLang(b.getAttribute("data-lang")); });
+        });
+        document.querySelectorAll(".x-pt-toggle").forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            var open = btn.getAttribute("aria-expanded") !== "true";
+            btn.parentNode.querySelectorAll(".x-pt-more").forEach(function (li) { li.hidden = !open; });
+            btn.setAttribute("aria-expanded", String(open));
+            btn.setAttribute("data-en", open ? "Show fewer" : "Show all");
+            btn.setAttribute("data-zh", open ? "收起" : "展开全部");
+            btn.innerHTML = btn.getAttribute(root.lang === "zh-CN" ? "data-zh" : "data-en");
+          });
         });
         var saved = null;
         try { saved = localStorage.getItem("x-lang"); } catch (e) {}
