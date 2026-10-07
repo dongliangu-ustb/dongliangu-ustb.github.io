@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Donglian Gu 顾栋炼 — Professor, USTB</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Serif+SC:wght@400;500&display=swap"
+    />
+    <link rel="stylesheet" href="hark.css" />
+    <link rel="stylesheet" href="hark-hero.css" />
+    <style>
+      :root {
+        --x-serif: "Cormorant Garamond", "Noto Serif SC", Georgia, serif;
+        --x-accent: light-dark(#3a4a66, #a7b6d2);
+      }
+      /* Design departure: serif display type for headings */
+      .hero h1, .head h2, .x-serif-h3 h3, .x-name {
+        font-family: var(--x-serif);
+        font-weight: 500;
+        letter-spacing: -0.005em;
+      }
+      .hero h1 { font-size: clamp(44px, 7vw, 84px); line-height: 1.02; }
+      .hero h1 .x-cn { display: block; font-size: 0.42em; font-weight: 400; margin-top: 10px; opacity: 0.9; }
+      .head h2 { font-size: clamp(28px, 3.6vw, 40px); line-height: 1.15; }
+      .x-serif-h3 h3 { font-size: 26px; line-height: 1.2; }
+      .head__eyebrow { color: var(--x-accent); letter-spacing: 0.08em; text-transform: uppercase; font: var(--type-caption); }
+      .hero .hero__eyebrow { letter-spacing: 0.08em; text-transform: uppercase; }
+
+      /* Language toggle */
+      .x-lang {
+        position: fixed;
+        top: calc(env(safe-area-inset-top, 0px) + 12px);
+        right: 12px;
+        z-index: 30;
+        display: flex;
+        padding: 4px;
+        gap: 2px;
+        border-radius: var(--r-pill);
+        background: var(--fill-primary-on);
+        border: 1px solid var(--stroke-primary);
+        box-shadow: var(--hark-shadow);
+      }
+      .x-lang button {
+        min-width: var(--tap);
+        min-height: 36px;
+        padding: 0 12px;
+        border: 0;
+        border-radius: var(--r-pill);
+        background: transparent;
+        color: var(--text-secondary);
+        font: var(--type-tag);
+        cursor: pointer;
+      }
+      .x-lang button[aria-pressed="true"] { background: var(--x-accent); color: var(--fill-primary-on); }
+      @media (max-width: 599px) { .x-lang { top: auto; bottom: 12px; } .x-lang button { min-height: var(--tap); } }
+
+      /* About */
+      .x-about {
+        display: grid;
+        grid-template-columns: minmax(180px, 280px) minmax(0, 1fr);
+        gap: clamp(24px, 5vw, 64px);
+        align-items: start;
+      }
+      .x-portrait { margin: 0; }
+      .x-portrait img {
+        display: block;
+        width: 100%;
+        aspect-ratio: 4 / 5;
+        object-fit: cover;
+        object-position: center top;
+        border-radius: var(--r-l);
+        background: var(--fill-tertiary);
+      }
+      .x-portrait figcaption { margin-top: 10px; font: var(--type-caption); color: var(--text-secondary); }
+      .x-about .prose p:first-child { font-family: var(--x-serif); font-size: 21px; line-height: 1.4; color: var(--text-primary); }
+      @media (max-width: 700px) { .x-about { grid-template-columns: 1fr; } .x-portrait { max-width: 240px; } }
+
+      /* Publications */
+      .x-pubyear {
+        margin: 32px 0 0;
+        padding-bottom: 10px;
+        border-bottom: 1px solid var(--stroke-primary);
+        font-family: var(--x-serif);
+        font-weight: 500;
+        font-size: 28px;
+        line-height: 1.1;
+        color: var(--x-accent);
+      }
+      .x-pubyear:first-of-type { margin-top: 0; }
+      .x-pubs { list-style: none; margin: 0; padding: 0; }
+      .x-pubs li {
+        display: grid;
+        grid-template-columns: 56px minmax(0, 1fr);
+        gap: 4px 16px;
+        padding: 14px 0;
+        border-bottom: 1px solid var(--stroke-secondary);
+      }
+      .x-pubs .x-num { font: var(--type-caption); font-family: "Geist Mono", monospace; color: var(--text-secondary); padding-top: 3px; }
+      .x-pubs .x-cite { margin: 0; font: var(--type-body); line-height: 1.5; color: var(--text-secondary); }
+      .x-pubs .x-cite b { color: var(--text-primary); font-weight: var(--weight-bold); }
+      .x-pubs .x-title { color: var(--text-primary); font-weight: var(--weight-medium); }
+      .x-pubs .x-cite i { color: var(--text-primary); }
+      .x-pubs .x-brief { margin: 4px 0 0; font: var(--type-small); color: var(--text-secondary); }
+      .x-pubs-foot { margin-top: 24px; }
+      @media (max-width: 599px) {
+        .x-pubs li { grid-template-columns: 32px minmax(0, 1fr); gap: 4px 10px; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="x-lang" role="group" aria-label="Language">
+      <button type="button" data-lang="en" aria-pressed="true">EN</button>
+      <button type="button" data-lang="zh" aria-pressed="false">中文</button>
+    </div>
+    <div class="page" id="top">
+      <header class="nav glass" data-auto></header>
+      <main class="main">
+        <section class="hero">
+          <img class="hero__img" src="hero.jpg" alt="A city skyline at dusk with glowing wind streamlines flowing between towers" />
+          <div class="hero__copy">
+            <p class="hero__eyebrow" data-zh="教授 · 北京科技大学">Professor · USTB</p>
+            <h1>Donglian Gu <span class="x-cn">顾栋炼</span></h1>
+            <p class="hero__sub" data-zh="以人工智能与城市科学，构建气候韧性与安全的城市。">AI + Urban Science for climate-resilient, safer cities.</p>
+            <p class="hero__meta" data-zh="北京科技大学城镇化与城市安全研究院 教授，城市安全与防灾减灾研究所副所长（主持工作）">Professor; Deputy Director (in charge), Institute of Urban Safety and Disaster Prevention, Research Institute of Urbanization and Urban Safety, University of Science and Technology Beijing (USTB)</p>
+            <div class="links">
+              <a class="btn" href="mailto:gudonglian@ustb.edu.cn" data-zh="邮箱">Email</a>
+              <a class="btn" href="https://scholar.google.com/citations?hl=en&amp;user=6cg-BmMAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+              <a class="btn" href="https://orcid.org/0000-0002-0523-7977" target="_blank" rel="noopener">ORCID</a>
+              <a class="btn" href="https://sfc.ustb.edu.cn/szdw/szdw1/13b796a59c1b40b5b57e4336a3540d1b.htm" target="_blank" rel="noopener" data-zh="学校主页">USTB profile</a>
+            </div>
+          </div>
+          <aside class="callout" aria-label="Contact">
+            <p class="callout__head"><span class="hark-mark" data-size="16"></span> <span data-zh="正在招生">Recruiting</span></p>
+            <p class="callout__lead" data-zh="<strong>欢迎合作与加入。</strong>课题组招收博士后、博士及硕士研究生。">
+              <strong>Open to collaboration.</strong> The group recruits postdocs, PhD and master's students.
+            </p>
+            <a class="btn" href="mailto:gudonglian@ustb.edu.cn">gudonglian@ustb.edu.cn</a>
+          </aside>
+        </section>
+
+        <section class="section" id="about" data-nav="Bio" data-nav-zh="简介">
+          <div class="head">
+            <p class="head__eyebrow" data-zh="个人简介">Biography</p>
+            <h2 data-zh="在人工智能与城市科学的交叉前沿开展研究。">Working at the frontier of AI and urban science.</h2>
+          </div>
+          <div class="x-about">
+            <figure class="x-portrait">
+              <img src="portrait_web.jpg" alt="Portrait of Professor Donglian Gu" />
+              <figcaption data-zh="顾栋炼 教授">Prof. Donglian Gu</figcaption>
+            </figure>
+            <div>
+              <div class="prose">
+                <p data-zh="顾栋炼，北京科技大学城镇化与城市安全研究院教授、博士，城市安全与防灾减灾研究所副所长（主持工作）。2016年、2021年于清华大学土木工程系分获学士（经管学院第二学位）与博士学位，2018年赴美国加州大学伯克利分校访问。">Donglian Gu is a Professor at the Research Institute of Urbanization and Urban Safety, University of Science and Technology Beijing (USTB), and Deputy Director (in charge) of its Institute of Urban Safety and Disaster Prevention. Gu received a B.Eng. (2016, with a second degree from the School of Economics and Management) and a Ph.D. (2021) in Civil Engineering from Tsinghua University, and was a visiting scholar at UC Berkeley in 2018.</p>
+                <p data-zh="研究聚焦人工智能与城市科学交叉方向，主要包括气候韧性城市、城市风工程与城市健康监测，融合计算流体力学、计算机视觉、深度学习、无人机倾斜摄影、街景影像与InSAR等技术，在城市尺度上开展灾害模拟、监测与风险评估。">Gu's research lies at the intersection of artificial intelligence and urban science, focusing on climate-resilient cities, urban wind engineering and urban health monitoring. Combining computational fluid dynamics, computer vision, deep learning, drone photogrammetry, street-view imagery and InSAR, the group simulates, monitors and assesses disaster risks at the scale of entire cities.</p>
+                <p data-zh="主持国家自然科学基金面上项目和青年项目、国家重点研发计划课题、北京市科技新星项目等，成果获北京市科学技术进步奖一等奖等奖励。担任《东南大学学报》首届青年编委及多个全国性学术组织理事。">Gu leads projects funded by the National Natural Science Foundation of China (General and Young Scientists programs), the National Key R&amp;D Program and the Beijing Nova Program, and the work has received first prizes including the Beijing Science and Technology Progress Award. Gu serves on the inaugural Young Editorial Board of the Journal of Southeast University and on the councils of several national societies for urban safety and wind engineering.</p>
+              </div>
+              <ol class="timeline" style="margin-top: 28px">
+                <li class="is-current">
+                  <p class="timeline__when">2026–</p>
+                  <div class="timeline__what" data-zh="北京科技大学 教授">Professor, USTB</div>
+                </li>
+                <li>
+                  <p class="timeline__when">2022–2026</p>
+                  <div class="timeline__what" data-zh="北京科技大学 副教授">Associate Professor, USTB</div>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="research" data-nav="Research" data-nav-zh="研究方向">
+          <div class="head">
+            <p class="head__eyebrow" data-zh="研究方向">Research directions</p>
+            <h2 data-zh="三个方向，一个目标：更具韧性、更安全的城市。">Three directions, one aim: cities that withstand climate hazards.</h2>
+            <p class="head__sub"><span class="pill">city safety</span> <span class="pill">computer vision</span> <span class="pill">deep learning</span> <span class="pill">wind disaster</span></p>
+          </div>
+          <div class="cards x-serif-h3">
+            <div>
+              <h3 data-zh="气候韧性城市">Climate-Resilient Cities</h3>
+              <p class="quote" data-zh="“风险源—风险暴露—减灾力”框架">The “risk source–risk exposure–mitigation force” framework.</p>
+              <ul>
+                <li data-zh="城市尺度风灾风险">City-scale wind-disaster risk</li>
+                <li data-zh="气候适应">Climate adaptation</li>
+                <li data-zh="面向城市韧性的数字孪生">Digital twins for urban resilience</li>
+              </ul>
+            </div>
+            <div>
+              <h3 data-zh="城市风工程">Urban Wind Engineering</h3>
+              <p class="quote" data-zh="基于无人机倾斜摄影的城市 CFD 风场模拟">CFD wind fields of cityscapes built from drone photogrammetry and oblique photography.</p>
+              <ul>
+                <li data-zh="门窗风致损伤">Wind damage to windows</li>
+                <li data-zh="树木倒伏">Trees</li>
+                <li data-zh="屋面设施">Roof facilities</li>
+                <li data-zh="电网">Power grids</li>
+              </ul>
+            </div>
+            <div>
+              <h3 data-zh="城市健康监测">Urban Health Monitoring</h3>
+              <p class="quote" data-zh="以视觉与遥感感知城市与结构的状态">Seeing structures and cities through vision and remote sensing.</p>
+              <ul>
+                <li data-zh="基于视觉的结构位移测量">Vision-based structural displacement measurement</li>
+                <li data-zh="超高层建筑数字影子">Digital shadowing of supertall buildings</li>
+                <li data-zh="InSAR 沉降监测">InSAR settlement monitoring</li>
+                <li data-zh="基于三维姿态估计的施工人员人因/疲劳风险">Construction worker ergonomic and fatigue risk via 3D pose estimation</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="publications" data-nav="Publications" data-nav-zh="学术论文">
+          <div class="head">
+            <p class="head__eyebrow" data-zh="学术论文">Publications</p>
+            <h2 data-zh="土木工程、风工程与城市科学领域的研究论文。">Research across civil engineering, wind engineering and urban science.</h2>
+            <p class="head__sub" data-zh="按年份排列，最新在前 · * 为通讯作者">By year, newest first · * corresponding author</p>
+          </div>
+          <h3 class="x-pubyear">2026</h3>
+          <ol class="x-pubs">
+            <li><span class="x-num">1</span><div><p class="x-cite"><b>D. Gu</b>, W. Jin, W. Chen, L. Xu. <span class="x-title">Assessing multiple construction workers' physical fatigue risks in 3D space.</span> <i>Computer-Aided Civil and Infrastructure Engineering</i>, 100060, 2026.</p><p class="x-brief" data-zh="将体力疲劳评估从单人扩展到多名工人，在三维空间中同时评估施工人员疲劳风险。">Extends fatigue assessment from a single worker to whole crews, tracking several workers' physical fatigue risk in 3D.</p></div></li>
+            <li><span class="x-num">2</span><div><p class="x-cite"><span class="x-title">Metric 3D localization of bridge cracks via training-free fractal-guided segmentation and multi-sensor fusion.</span> <i>Measurement</i>, 2026.</p><p class="x-brief" data-zh="结合免训练分形引导分割与多传感器融合，实现桥梁裂缝真实尺度三维定位。">Locates bridge cracks at true 3D scale by pairing training-free fractal-guided segmentation with multi-sensor fusion.</p></div></li>
+            <li><span class="x-num">3</span><div><p class="x-cite">W. Chen, X. Wang, <b>D. Gu</b>*, L. Xu. <span class="x-title">Advancing real-time assessment for work-related musculoskeletal disorders in construction using large foundation models.</span> <i>Results in Engineering</i>, 29, 109224, 2026.</p><p class="x-brief" data-zh="利用大模型实时评估施工人员肌肉骨骼损伤风险。">Uses large foundation models to assess construction workers' musculoskeletal-disorder risk in real time.</p></div></li>
+            <li><span class="x-num">4</span><div><p class="x-cite">J. Fu, <b>D. Gu</b>*, Z. Xu, Q. Yue. <span class="x-title">Wind-induced electric power interruption: A review of risk source, risk exposure, and risk mitigation.</span> <i>International Journal of Disaster Risk Science</i>, 2026.</p><p class="x-brief" data-zh="以“风险源—承灾体—减灾力”视角系统综述风致电力中断。">Reviews how wind causes power outages through the lens of risk source, exposure and mitigation.</p></div></li>
+            <li><span class="x-num">5</span><div><p class="x-cite">Z. Xu, C. Liang, Z. Mu, Y. Tian, <b>D. Gu</b>*. <span class="x-title">Structural type identification of city-scale building groups based on deep learning.</span> <i>Journal of Computing in Civil Engineering</i>, 40(1), 04025119, 2026.</p><p class="x-brief" data-zh="用深度学习识别城市建筑群结构类型，为区域灾害模拟提供基础数据。">Deep learning identifies the structural type of buildings across a city, feeding regional hazard models.</p></div></li>
+            <li><span class="x-num">6</span><div><p class="x-cite"><b>顾栋炼</b>, 邵浩然, 施钟淇, 等. <span class="x-title">基于改进时序InSAR技术的填海区地面沉降监测：以中国深圳前海填海区为例.</span> <i>东南大学学报(自然科学版)</i>, 2026.</p><p class="x-brief" data-zh="改进时序InSAR技术，监测深圳前海填海区地面沉降。">An improved time-series InSAR method monitors ground settlement on Shenzhen Qianhai's reclaimed land.</p></div></li>
+            <li><span class="x-num">7</span><div><p class="x-cite">史涛, 岳清瑞, 许镇, 金楠, <b>顾栋炼</b>*. <span class="x-title">基于风险源-承灾体-减灾力理论的建筑屋面附属设施风致破坏研究综述.</span> <i>工程力学</i>, 2026.</p><p class="x-brief" data-zh="基于该理论综述建筑屋面附属设施风致破坏研究。">Reviews wind damage to rooftop attachments using the risk source–exposure–mitigation theory.</p></div></li>
+          </ol>
+          <h3 class="x-pubyear">2025</h3>
+          <ol class="x-pubs">
+            <li><span class="x-num">8</span><div><p class="x-cite">W. Chen, <b>D. Gu</b>*. <span class="x-title">Real-time physical fatigue risk assessment for construction workers using a teacher-student training paradigm.</span> <i>Automation in Construction</i>, 177, 106372, 2025.</p><p class="x-brief" data-zh="采用师生训练范式，实现轻量化、实时的工人体力疲劳风险评估。">A teacher–student training scheme enables lightweight, real-time fatigue risk assessment for workers.</p></div></li>
+            <li><span class="x-num">9</span><div><p class="x-cite"><b>D. Gu</b>, Q. Shuai, N. Zhang, N. Jin, Z. Zheng, Z. Xu, Y. Xu. <span class="x-title">Multi-view street view image fusion for city-scale assessment of wind damage to building clusters.</span> <i>Computer-Aided Civil and Infrastructure Engineering</i>, 40(2), 198–214, 2025.</p><p class="x-brief" data-zh="融合多视角街景图像，开展城市建筑群风灾损伤评估。">Fuses multi-view street-view images to assess wind damage to buildings across a city.</p></div></li>
+            <li><span class="x-num">10</span><div><p class="x-cite">G. Zhai, B.F. Spencer, J. Yan, W. Liao, <b>D. Gu</b>, et al. <span class="x-title">Coupled data/physics-driven framework for accurate and efficient structural response simulation.</span> <i>Engineering Structures</i>, 327, 119636, 2025.</p><p class="x-brief" data-zh="耦合数据驱动与物理模型，实现准确高效的结构响应模拟。">Couples data-driven and physics-based models for fast yet accurate structural response simulation.</p></div></li>
+            <li><span class="x-num">11</span><div><p class="x-cite">Z. Xu, Y. Zhu, J. Fan, Q. Zhou, <b>D. Gu</b>, Y. Tian. <span class="x-title">A spatiotemporal casualty assessment method caused by earthquake falling debris of building clusters considering human emergency behaviors.</span> <i>International Journal of Disaster Risk Reduction</i>, 117, 105206, 2025.</p><p class="x-brief" data-zh="考虑人员应急行为，时空评估建筑群地震坠物伤亡。">Estimates casualties from earthquake falling debris over space and time, accounting for how people evacuate.</p></div></li>
+            <li><span class="x-num">12</span><div><p class="x-cite">Y. Wu, L. Xu, <b>D. Gu</b>*, N. Zhang, Z. Zheng, Y. Xu. <span class="x-title">Vision-based recognition and geolocation of colored steel constructions in cities to promote urban management.</span> <i>Journal of Building Engineering</i>, 102, 111904, 2025.</p><p class="x-brief" data-zh="用计算机视觉识别并定位城市彩钢板建筑，服务城市治理。">Computer vision finds and geolocates colored-steel structures across a city to support urban management.</p></div></li>
+            <li><span class="x-num">13</span><div><p class="x-cite"><span class="x-title">A three-dimensional simulation method of fire spread for building clusters based on oblique photography and variable multi-grid.</span> <i>Journal of Building Engineering</i>, 112781, 2025.</p><p class="x-brief" data-zh="基于倾斜摄影与变尺度多重网格，三维模拟建筑群火灾蔓延。">Simulates fire spread across building clusters in 3D, built from oblique photography with a variable multi-grid.</p></div></li>
+            <li><span class="x-num">14</span><div><p class="x-cite">Y. Wang, X. Lu, S. Rianto, <b>D. Gu</b>*. <span class="x-title">Falling debris from building envelope infill walls impacted by earthquake-induced building collision: Experiment and finite element analysis.</span> <i>Structures</i>, 79, 109523, 2025.</p><p class="x-brief" data-zh="通过试验与有限元分析研究地震碰撞引起的围护填充墙坠物。">Tests and models how building pounding during earthquakes knocks debris off infill walls.</p></div></li>
+            <li><span class="x-num">15</span><div><p class="x-cite"><b>顾栋炼</b>, 张宁, 王玺越, 许镇. <span class="x-title">基于视觉基础模型的无人机航拍图像弱监督语义分割.</span> <i>东南大学学报(自然科学版)</i>, 2025.</p><p class="x-brief" data-zh="借助视觉基础模型实现无人机航拍图像弱监督语义分割。">Weakly supervised semantic segmentation of drone imagery powered by vision foundation models.</p></div></li>
+          </ol>
+          <h3 class="x-pubyear">2024</h3>
+          <ol class="x-pubs">
+            <li><span class="x-num">16</span><div><p class="x-cite"><b>D. Gu</b>, Q. Yue, L. Li, C. Sun, X. Lu. <span class="x-title">Vision-based digital shadowing to reveal hidden structural dynamics of a real supertall building.</span> <i>Engineering</i>, 43, 146–158, 2024.</p><p class="x-brief" data-zh="以视觉方法构建真实超高层建筑数字影子，揭示隐藏的结构动力特性。">Uses cameras to build a digital shadow of a real supertall tower, revealing structural dynamics that sensors miss.</p></div></li>
+            <li><span class="x-num">17</span><div><p class="x-cite"><b>D. Gu</b>, N. Zhang, Q. Shuai, Z. Xu, Y. Xu. <span class="x-title">Drone photogrammetry-based wind field simulation for climate adaptation in urban environments.</span> <i>Sustainable Cities and Society</i>, 117, 105989, 2024.</p><p class="x-brief" data-zh="将无人机倾斜摄影转化为CFD模型，模拟城市风场以支撑气候适应。">Turns drone photogrammetry into city CFD models to simulate urban wind for climate adaptation.</p></div></li>
+            <li><span class="x-num">18</span><div><p class="x-cite"><b>D. Gu</b>, N. Zhang, Z. Xu, Y. Wu, Y. Tian. <span class="x-title">Urban risk assessment model to quantify earthquake-induced elevator passenger entrapment with population heatmap.</span> <i>Computer-Aided Civil and Infrastructure Engineering</i>, 39(14), 2204–2222, 2024.</p><p class="x-brief" data-zh="结合人口热力图，量化地震导致电梯困人的城市风险。">Combines population heatmaps with seismic analysis to predict how many people are trapped in elevators.</p></div></li>
+            <li><span class="x-num">19</span><div><p class="x-cite">W. Chen, <b>D. Gu</b>*, J. Ke. <span class="x-title">Real-time ergonomic risk assessment in construction using a co-learning-powered 3D human pose estimation model.</span> <i>Computer-Aided Civil and Infrastructure Engineering</i>, 39(9), 1337–1353, 2024.</p><p class="x-brief" data-zh="基于协同学习的三维姿态估计，实时评估施工人员人因风险。">A co-learning 3D pose model scores construction workers' ergonomic risk in real time from video.</p></div></li>
+            <li><span class="x-num">20</span><div><p class="x-cite">Y. Wang, Q. Yue, X. Lu, <b>D. Gu</b>*, Z. Xu, Y. Tian, S. Zhang. <span class="x-title">Digital twin approach for enhancing urban resilience: A cycle between virtual space and the real world.</span> <i>Resilient Cities and Structures</i>, 3(2), 34–45, 2024.</p><p class="x-brief" data-zh="提出虚实循环的数字孪生方法，提升城市韧性。">Proposes a digital-twin loop linking virtual simulation and the real city to strengthen resilience.</p></div></li>
+            <li><span class="x-num">21</span><div><p class="x-cite">Z. Xu, Y. Zhu, <b>D. Gu</b>*, Q. Zhou. <span class="x-title">An integrated simulation method for large-scale earthquake-induced falling debris in building groups.</span> <i>Earthquake Engineering &amp; Structural Dynamics</i>, 53(5), 1767–1786, 2024.</p><p class="x-brief" data-zh="建筑群大规模地震坠物一体化模拟方法。">Simulates earthquake-induced falling debris across entire building groups.</p></div></li>
+            <li><span class="x-num">22</span><div><p class="x-cite">Y. Tian, S. Liu, S. Chen, <b>D. Gu</b>*. <span class="x-title">The site-city interaction effect uncertainty on structural responses and its application to fragility analysis of buildings in Shanghai CBD.</span> <i>Structures</i>, 69, 107494, 2024.</p><p class="x-brief" data-zh="研究场地-城市相互作用不确定性对结构响应的影响，并用于上海CBD建筑易损性分析。">Quantifies how site–city interaction uncertainty alters building responses and fragility in Shanghai's CBD.</p></div></li>
+            <li><span class="x-num">23</span><div><p class="x-cite">S. Rianto, X. Lu, <b>D. Gu</b>, Z. Xu. <span class="x-title">An end-to-end framework for fire following earthquake simulation at regional scale: A case study on the 2024 Japan Noto Peninsula earthquake.</span> <i>International Journal of Disaster Risk Reduction</i>, 104859, 2024.</p><p class="x-brief" data-zh="区域尺度震后火灾端到端模拟框架，以2024年日本能登半岛地震为例。">End-to-end regional simulation of post-earthquake fires, tested on the 2024 Noto Peninsula earthquake.</p></div></li>
+            <li><span class="x-num">24</span><div><p class="x-cite"><b>顾栋炼</b>, 吴小宾, 张庆林, 彭志桢, 刘宜丰, 田源, 陆新征. <span class="x-title">489米超高层建筑抗倒塌分析案例研究.</span> <i>工程力学</i>, 41(4), 106–115, 2024.</p><p class="x-brief" data-zh="489米超高层建筑抗倒塌性能案例分析。">A collapse-resistance case study of a 489 m supertall building.</p></div></li>
+          </ol>
+          <h3 class="x-pubyear">2023</h3>
+          <ol class="x-pubs">
+            <li><span class="x-num">25</span><div><p class="x-cite">C. Sun, <b>D. Gu</b>, X. Lu. <span class="x-title">Three-dimensional structural displacement measurement using monocular vision and deep learning based pose estimation.</span> <i>Mechanical Systems and Signal Processing</i>, 190, 110141, 2023.</p><p class="x-brief" data-zh="单目视觉结合深度学习位姿估计，测量结构三维位移。">Measures 3D structural displacement with a single camera and deep-learning pose estimation.</p></div></li>
+            <li><span class="x-num">26</span><div><p class="x-cite"><b>D. Gu</b>, A. Kareem, X. Lu, Q. Cheng. <span class="x-title">A computational framework for the simulation of wind effects on buildings in a cityscape.</span> <i>Journal of Wind Engineering and Industrial Aerodynamics</i>, 234, 105347, 2023.</p><p class="x-brief" data-zh="城市尺度建筑风效应模拟计算框架。">A framework for simulating wind effects on buildings across a whole cityscape.</p></div></li>
+            <li><span class="x-num">27</span><div><p class="x-cite"><b>D. Gu</b>, Q. Shuai, Y. Wang. <span class="x-title">CIM-powered physics-based assessment of wind damages to building clusters considering trees.</span> <i>Developments in the Built Environment</i>, 15, 100178, 2023.</p><p class="x-brief" data-zh="基于CIM的物理模型评估建筑群风灾，并考虑树木影响。">Uses city information models to assess wind damage to buildings, including the role of trees.</p></div></li>
+            <li><span class="x-num">28</span><div><p class="x-cite"><span class="x-title">Probability-based city-scale risk assessment of passengers trapped in elevators under earthquakes.</span> <i>Sustainability</i>, 15(6), 4829, 2023.</p><p class="x-brief" data-zh="基于概率的城市尺度地震电梯困人风险评估。">A probabilistic, city-wide estimate of elevator entrapment during earthquakes.</p></div></li>
+            <li><span class="x-num">29</span><div><p class="x-cite">Q. Yue, X. Lu, Z. Xu, Z. Shi, Y. Tian, et al. <span class="x-title">The "risk source–risk exposure–mitigation force" theoretical framework for urban safety.</span> <i>Engineering Mechanics</i>, 2023.</p><p class="x-brief" data-zh="提出“风险源—承灾体—减灾力”城市安全理论框架。">Proposes a unifying theory of urban safety built on risk source, exposure and mitigation capacity.</p></div></li>
+          </ol>
+          <h3 class="x-pubyear">2022</h3>
+          <ol class="x-pubs">
+            <li><span class="x-num">30</span><div><p class="x-cite">C. Sun, <b>D. Gu</b>, Y. Zhang, X. Lu. <span class="x-title">Vision-based displacement measurement enhanced by super-resolution using generative adversarial networks.</span> <i>Structural Control and Health Monitoring</i>, 29(10), e3048, 2022.</p><p class="x-brief" data-zh="利用生成对抗网络超分辨率提升视觉位移测量精度。">GAN super-resolution sharpens video so cameras can measure structural displacement more precisely.</p></div></li>
+            <li><span class="x-num">31</span><div><p class="x-cite"><b>D. Gu</b>, W. Chen, X. Lu. <span class="x-title">Automated assessment of wind damage to windows of buildings at a city scale based on oblique photography, deep learning and CFD.</span> <i>Journal of Building Engineering</i>, 52, 104355, 2022.</p><p class="x-brief" data-zh="融合倾斜摄影、深度学习与CFD，自动评估城市建筑窗户风灾。">Combines oblique photography, deep learning and CFD to predict window damage in windstorms across a city.</p></div></li>
+            <li><span class="x-num">32</span><div><p class="x-cite"><span class="x-title">The "database–network–flow–spectrum–law" theoretical framework for urban safety characterization based on "risk source" + "risk exposure" + "mitigation factor".</span> <i>Engineering Mechanics</i>, 2022.</p><p class="x-brief" data-zh="基于“风险源+承灾体+减灾体”的城市安全表征“库-网-流-谱-法”理论框架。">A "database–network–flow–spectrum–law" framework for characterizing urban safety.</p></div></li>
+          </ol>
+          <h3 class="x-pubyear">2021</h3>
+          <ol class="x-pubs">
+            <li><span class="x-num">33</span><div><p class="x-cite"><b>D. Gu</b>, P. Zhao, W. Chen, Y. Huang, X. Lu. <span class="x-title">Near real-time prediction of wind-induced tree damage at a city scale: Simulation framework and case study for Tsinghua University campus.</span> <i>International Journal of Disaster Risk Reduction</i>, 53, 102003, 2021.</p><p class="x-brief" data-zh="城市尺度风致树木损伤近实时预测，以清华校园为例。">Predicts wind-induced tree damage city-wide in near real time, demonstrated on the Tsinghua campus.</p></div></li>
+          </ol>
+          <h3 class="x-pubyear">2020</h3>
+          <ol class="x-pubs">
+            <li><span class="x-num">34</span><div><p class="x-cite">X. Lu, <b>D. Gu</b>, Z. Xu, C. Xiong, Y. Tian. <span class="x-title">CIM-powered multi-hazard simulation framework covering both individual buildings and urban areas.</span> <i>Sustainability</i>, 12(12), 5059, 2020.</p><p class="x-brief" data-zh="基于CIM的多灾害模拟框架，覆盖单体建筑与城市区域。">A CIM-based framework simulating multiple hazards from single buildings to whole cities.</p></div></li>
+            <li><span class="x-num">35</span><div><p class="x-cite"><b>D. Gu</b>, Z. Zheng, P. Zhao, L. Xie, Z. Xu, X. Lu. <span class="x-title">High-efficiency simulation framework to analyze the impact of exhaust air from COVID-19 temporary hospitals and its typical applications.</span> <i>Applied Sciences</i>, 10(11), 3949, 2020.</p><p class="x-brief" data-zh="快速模拟新冠临时医院排风对周边环境的影响。">Rapidly simulates how exhaust air from COVID-19 temporary hospitals disperses into surrounding areas.</p></div></li>
+            <li><span class="x-num">36</span><div><p class="x-cite"><b>顾栋炼</b>, 张银安, 刘华斌, 马友才, 曹晓庆, 吕中一, 解琳琳, 许镇, 徐永嘉, 郑哲, 杨参天, 陆新征. <span class="x-title">新冠肺炎疫情临时医院排风的环境影响快速模拟方法.</span> <i>工程力学</i>, 37(12), 250–256, 2020.</p><p class="x-brief" data-zh="新冠临时医院排风环境影响的快速模拟方法。">Rapid simulation method for the environmental impact of temporary-hospital exhaust air (Chinese-language study).</p></div></li>
+            <li><span class="x-num">37</span><div><p class="x-cite">方东平, 李全旺, 李楠, 王飞, 刘影, <b>顾栋炼</b>, 孙楚津, 潘胜杰, 侯冠杰, 陆新征. <span class="x-title">社区地震安全韧性评估系统及应用示范 (An evaluation system for community seismic resilience and its application in a typical community).</span> <i>工程力学</i>, 37(10), 28–44, 2020.</p><p class="x-brief" data-zh="社区地震安全韧性评估系统及应用示范。">An evaluation system for community seismic resilience, demonstrated in a typical community.</p></div></li>
+          </ol>
+          <h3 class="x-pubyear">2019</h3>
+          <ol class="x-pubs">
+            <li><span class="x-num">38</span><div><p class="x-cite"><span class="x-title">基于动力弹塑性时程分析和实测地面运动的地震破坏力速报系统 (A rapid reporting system of earthquake destructive power based on nonlinear time-history analysis and actual ground motion records).</span> <i>自然灾害学报</i>, 2019.</p><p class="x-brief" data-zh="基于动力弹塑性时程分析与实测地震动的地震破坏力速报系统。">Rapidly reports an earthquake's damage potential by running nonlinear analyses on recorded ground motions.</p></div></li>
+            <li><span class="x-num">39</span><div><p class="x-cite"><span class="x-title">改变框架-核心筒结构剪力调整策略对其抗震性能影响的研究 (Influence of changing shear adjustment strategy on aseismic performance of frame-core tube structure).</span> <i>工程力学</i>, 2019.</p><p class="x-brief" data-zh="研究剪力调整策略对框架-核心筒结构抗震性能的影响。">Examines how shear-adjustment strategies change the seismic performance of frame–core-tube buildings.</p></div></li>
+            <li><span class="x-num">40</span><div><p class="x-cite"><span class="x-title">Experimental study of novel concrete frames considering earthquake and progressive collapse.</span> In: <i>Concrete Structures in Earthquake</i> (Springer), 2019.</p><p class="x-brief" data-zh="兼顾抗震与抗连续倒塌的新型混凝土框架试验研究。">Tests new RC frame detailing that resists both earthquakes and progressive collapse.</p></div></li>
+            <li><span class="x-num">41</span><div><p class="x-cite"><span class="x-title">Seismic loss assessment for buildings with multiple LOD BIM data.</span> <i>13th International Conference on Applications of Statistics and Probability in Civil Engineering (ICASP13)</i>, 2019.</p><p class="x-brief" data-zh="基于多细度BIM数据的建筑地震损失评估。">Assesses building seismic losses using BIM data at multiple levels of detail.</p></div></li>
+          </ol>
+          <h3 class="x-pubyear">2017</h3>
+          <ol class="x-pubs">
+            <li><span class="x-num">42</span><div><p class="x-cite">Q. Yang, X. Lu, C. Yu, <b>D. Gu</b>. <span class="x-title">Experimental study and finite element analysis of energy dissipating outriggers.</span> <i>Advances in Structural Engineering</i>, 20(8), 1196–1209, 2017.</p><p class="x-brief" data-zh="耗能伸臂的试验与有限元分析。">Tests and models energy-dissipating outriggers that protect tall buildings in earthquakes.</p></div></li>
+            <li><span class="x-num">43</span><div><p class="x-cite"><span class="x-title">Experimental studies on a novel structural detailing of RC frames to resist earthquake and progressive collapse.</span> <i>IABSE Symposium</i>, Vancouver, 2017.</p><p class="x-brief" data-zh="抗震与抗连续倒塌新型钢筋混凝土框架构造的试验研究。">Conference study of the new RC frame detailing against earthquake and progressive collapse.</p></div></li>
+            <li><span class="x-num">44</span><div><p class="x-cite"><span class="x-title">Influence of seismic action adjustments on seismic design and safety of RC frames.</span> <i>工程力学</i>, 2017.</p><p class="x-brief" data-zh="研究地震作用调整对钢筋混凝土框架抗震设计与安全的影响。">Studies how adjusting seismic actions affects the design and safety of RC frames.</p></div></li>
+          </ol>
+          <div class="links x-pubs-foot"><a class="btn" href="https://scholar.google.com/citations?hl=en&amp;user=6cg-BmMAAAAJ" target="_blank" rel="noopener">Google Scholar</a></div>
+        </section>
+
+        <section class="section" id="honors" data-nav="Honors" data-nav-zh="荣誉">
+          <div class="head">
+            <p class="head__eyebrow" data-zh="荣誉与奖励">Honors &amp; awards</p>
+            <h2 data-zh="四项省部级及行业一等奖，入选博新计划和北京市科技新星。">Four first prizes, the national Postdoctoral Innovative Talent program and the Beijing municipal Nova Program.</h2>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th scope="col" data-zh="荣誉">Honor</th><th scope="col" data-zh="年份">Year</th></tr>
+              </thead>
+              <tbody>
+                <tr class="is-highlight"><th scope="row" data-zh="北京市科技新星">Beijing Nova Program <small>北京市科技新星</small></th><td class="num">2026</td></tr>
+                <tr><th scope="row" data-zh="华夏建设科学技术奖 一等奖">First Prize, Huaxia Construction Science and Technology Award</th><td class="num">2025</td></tr>
+                <tr><th scope="row" data-zh="中国钢结构协会科学技术奖 一等奖">First Prize, China Steel Construction Society Science and Technology Progress Award</th><td class="num">2025</td></tr>
+                <tr><th scope="row" data-zh="北京科技大学 优秀博士后">Outstanding Postdoc, USTB</th><td class="num">2024</td></tr>
+                <tr><th scope="row" data-zh="北京市科学技术进步奖 一等奖">First Prize, Beijing Science and Technology Progress Award</th><td class="num">2023</td></tr>
+                <tr><th scope="row" data-zh="中国安全生产协会安全科技进步奖 一等奖">First Prize, China Work Safety Association Safety Science &amp; Technology Progress Award</th><td class="num">2023</td></tr>
+                <tr><th scope="row" data-zh="博士后创新人才支持计划（博新计划）">China Postdoctoral Innovative Talent Support Program <small>博新计划</small></th><td class="num">2022</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="section" id="grants" data-nav="Grants" data-nav-zh="科研项目">
+          <div class="head">
+            <p class="head__eyebrow" data-zh="科研项目">Research grants</p>
+            <h2 data-zh="主持国家自然科学基金、国家重点研发计划等项目。">Funded by NSFC, the National Key R&amp;D Program and Beijing.</h2>
+            <p class="head__sub" data-zh="除注明外均为项目负责人">PI unless noted</p>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th scope="col" data-zh="项目">Program</th><th scope="col" data-zh="角色">Role</th><th scope="col" data-zh="起止年份">Years</th></tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row" data-zh="国家自然科学基金 面上项目">NSFC General Program</th><td data-zh="负责人">PI</td><td class="num">2026–2029</td></tr>
+                <tr><th scope="row" data-zh="北京市科技新星计划">Beijing Nova Program</th><td data-zh="负责人">PI</td><td class="num">2026–2029</td></tr>
+                <tr><th scope="row" data-zh="深圳市重点产业研发项目">Shenzhen Key Industry R&amp;D project</th><td data-zh="负责人">PI</td><td class="num">2026–2028</td></tr>
+                <tr><th scope="row" data-zh="国家重点研发计划 项目">National Key R&amp;D Program project</th><td data-zh="负责人">PI</td><td class="num">2025–2027</td></tr>
+                <tr><th scope="row" data-zh="国家重点研发计划 课题">National Key R&amp;D Program sub-project</th><td data-zh="负责人">PI</td><td class="num">2022–2025</td></tr>
+                <tr><th scope="row" data-zh="国家自然科学基金 青年科学基金">NSFC Young Scientists Fund</th><td data-zh="负责人">PI</td><td class="num">2023–2025</td></tr>
+                <tr><th scope="row" data-zh="国家自然科学基金 重点项目">NSFC Key Program</th><td data-zh="任务负责人">Task leader</td><td class="num">2023–2027</td></tr>
+                <tr><th scope="row" data-zh="中国工程院 战略咨询项目">Chinese Academy of Engineering strategic consulting projects</th><td data-zh="执行负责人">Lead executor</td><td class="num">2023–2026</td></tr>
+                <tr><th scope="row" data-zh="国家自然科学基金专项：城市安全 2040 / 公共安全 2045">NSFC Special Projects on Urban Safety 2040 / Public Safety 2045</th><td data-zh="执行负责人">Lead executor</td><td class="muted">—</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="section" id="service" data-nav="Service" data-nav-zh="学术兼职">
+          <div class="head">
+            <p class="head__eyebrow" data-zh="学术兼职与专利">Service &amp; patents</p>
+            <h2 data-zh="服务学术共同体，推动成果转化。">Serving the field, and turning research into practice.</h2>
+          </div>
+          <div class="cards x-serif-h3">
+            <div>
+              <h3 data-zh="学术兼职">Professional service</h3>
+              <ul>
+                <li data-zh="中国建筑学会城市安全分会 常务理事">Executive Council Member, Urban Safety Branch, Architectural Society of China</li>
+                <li data-zh="中国灾害防御协会城市安全监测预警分会 副秘书长">Deputy Secretary-General, Urban Safety Monitoring &amp; Early Warning Branch, China Disaster Prevention Association</li>
+                <li data-zh="《东南大学学报》（自然科学版、英文版）首届青年编委">Inaugural Young Editorial Board, Journal of Southeast University (Natural Science &amp; English editions)</li>
+                <li data-zh="中国灾害防御协会风与风灾分会 理事">Council Member, Wind &amp; Wind Disaster Branch, China Disaster Prevention Association</li>
+                <li data-zh="中国土木工程学会城市工程防灾韧性分会 理事">Council Member, Urban Engineering Disaster Resilience Branch, China Civil Engineering Society</li>
+                <li data-zh="中国振动工程学会风致振动与控制专业委员会 委员">Member, Wind-Induced Vibration &amp; Control Committee, Chinese Society for Vibration Engineering</li>
+                <li data-zh="中国灾害防御协会 气象灾害智库专家">Think-tank expert (meteorological disasters), China Disaster Prevention Association</li>
+                <li data-zh="参与 ISO/TC71/SC5/WG9（AWI 22556）工作">Active in ISO/TC71/SC5/WG9 (AWI 22556)</li>
+              </ul>
+            </div>
+            <div>
+              <h3 data-zh="发明专利">Patents</h3>
+              <p data-zh="以第一发明人获授权的中国发明专利，例如：">Granted Chinese invention patents as first inventor include:</p>
+              <ul>
+                <li data-zh="基于倾斜摄影的 CFD 模型构建 <small>CN118965519A</small>">CFD model construction from oblique photography <small>CN118965519A</small></li>
+                <li data-zh="基于街景的城市行道树几何信息提取 <small>CN119516387A</small>">Street-view-based extraction of urban street-tree geometry <small>CN119516387A</small></li>
+                <li data-zh="基于物理模型的建筑群风灾保险费率定价 <small>CN116523663A</small>">Physics-based wind-disaster insurance premium pricing for building clusters <small>CN116523663A</small></li>
+                <li data-zh="基于机器视觉的工作相关肌肉骨骼疾病（WMSD）风险实时监测 <small>CN116206369A</small>">Real-time WMSD risk monitoring via machine vision <small>CN116206369A</small></li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="join" data-nav="Join" data-nav-zh="加入我们">
+          <div class="head">
+            <p class="head__eyebrow" data-zh="加入课题组 · 教学">Join the group · Teaching</p>
+            <h2 data-zh="Work Hard, Play Hard. 欢迎加入课题组。">Work Hard, Play Hard. Come build safer cities with us.</h2>
+          </div>
+          <div class="pair">
+            <aside class="callout" aria-label="Recruitment">
+              <p class="callout__head" data-zh="招生招聘">Recruiting</p>
+              <p class="callout__lead" data-zh="<strong>招收博士后、博士及硕士研究生。</strong>方向涵盖城市科学、人工智能与防灾减灾。">
+                <strong>Postdocs, PhD and master's students.</strong> Urban science, AI and disaster prevention.
+              </p>
+              <p class="fineprint" data-zh="办公室：北京科技大学科技楼 507 室">Office: Room 507, Science &amp; Technology Building, USTB, Beijing</p>
+              <a class="btn" href="mailto:gudonglian@ustb.edu.cn">gudonglian@ustb.edu.cn</a>
+            </aside>
+            <div class="cards">
+              <div>
+                <h3 data-zh="学生荣誉">Student honors</h3>
+                <ul>
+                  <li data-zh="国家奖学金">National Scholarships</li>
+                  <li data-zh="全国“挑战杯”（人工智能赛道）特等奖">Grand Prize, national “Challenge Cup” (AI track)</li>
+                  <li data-zh="北京市自然科学基金本科生项目">Beijing NSF undergraduate grants</li>
+                </ul>
+              </div>
+              <div>
+                <h3 data-zh="教学">Teaching</h3>
+                <p data-zh="结构力学 II">Structural Mechanics II</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer class="foot">
+        <p>© 2026 Donglian Gu</p>
+        <nav aria-label="Back to sections" data-auto></nav>
+        <a class="badge" href="https://hark.com/" target="_blank" rel="noopener"><span class="hark-mark"></span><span>built by hark</span></a>
+      </footer>
+    </div>
+    <script src="hark.js"></script>
+    <script>
+      (function () {
+        var root = document.documentElement;
+        var titles = { en: "Donglian Gu 顾栋炼 — Professor, USTB", zh: "顾栋炼 — 北京科技大学 教授" };
+        function setLang(lang) {
+          document.querySelectorAll("[data-zh]").forEach(function (el) {
+            if (!el.hasAttribute("data-en")) el.setAttribute("data-en", el.innerHTML);
+            el.innerHTML = el.getAttribute(lang === "zh" ? "data-zh" : "data-en");
+          });
+          document.querySelectorAll("section[data-nav]").forEach(function (s) {
+            var label = lang === "zh" && s.getAttribute("data-nav-zh") ? s.getAttribute("data-nav-zh") : s.getAttribute("data-nav");
+            document.querySelectorAll('a[href="#' + s.id + '"]').forEach(function (a) {
+              if (a.closest(".nav") || a.closest(".foot")) a.textContent = label;
+            });
+          });
+          document.querySelectorAll('.foot a[href="#top"]').forEach(function (a) { a.textContent = lang === "zh" ? "顶部" : "Top"; });
+          document.querySelectorAll(".table-wrap table").forEach(function (t) {
+            var names = [].map.call(t.querySelectorAll("thead th"), function (th) { return th.textContent.trim(); });
+            t.querySelectorAll("tbody tr").forEach(function (tr) {
+              [].forEach.call(tr.children, function (c, i) { if (c.tagName === "TD" && names[i]) c.setAttribute("data-label", names[i]); });
+            });
+          });
+          root.lang = lang === "zh" ? "zh-CN" : "en";
+          document.title = titles[lang];
+          document.querySelectorAll(".x-lang button").forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-lang") === lang)); });
+          try { localStorage.setItem("x-lang", lang); } catch (e) {}
+        }
+        document.querySelectorAll(".x-lang button").forEach(function (b) {
+          b.addEventListener("click", function () { setLang(b.getAttribute("data-lang")); });
+        });
+        var saved = null;
+        try { saved = localStorage.getItem("x-lang"); } catch (e) {}
+        if (saved === "zh") setLang("zh");
+      })();
+    </script>
+  </body>
+</html>
