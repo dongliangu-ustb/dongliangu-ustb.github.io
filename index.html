@@ -109,6 +109,14 @@
       @media (max-width: 599px) {
         .x-pubs li { grid-template-columns: 32px minmax(0, 1fr); gap: 4px 10px; }
       }
+
+      /* Group life */
+      .x-life h3 { font: var(--type-heading); margin: 0 0 6px; }
+      .x-photos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin: 16px 0 0; align-items: start; }
+      .x-photos figure { margin: 0; }
+      .x-photos img { display: block; width: 100%; height: auto; border-radius: var(--r-m); background: var(--fill-tertiary); }
+      .x-photos figcaption { margin-top: 8px; font: var(--type-caption); color: var(--text-secondary); }
+      @media (max-width: 599px) { .x-photos { grid-template-columns: 1fr; } }
     </style>
   </head>
   <body>
@@ -370,6 +378,33 @@
               </ul>
             </div>
           </div>
+        </section>
+
+        <section class="section" id="life" data-nav="Group life" data-nav-zh="课题组活动">
+          <div class="head">
+            <h2 data-zh="课题组活动">Group life</h2>
+            <p class="head__sub" data-zh="认真科研，也认真生活。课题组的日常与活动。">Work hard, play hard: moments from the group.</p>
+          </div>
+          <!-- Newest first: add new entries as the first <li>. -->
+          <ol class="timeline x-life">
+            <li>
+              <p class="timeline__when"><time datetime="2026-10-07" data-zh="2026年10月7日">October 7, 2026</time></p>
+              <div class="timeline__what">
+                <h3 data-zh="秋日露营">Autumn camping</h3>
+                <p data-zh="课题组走进林间露营：午后在秋日杨树林里合影，夜晚在灯串点亮的帐篷下围坐聚餐。">The group spent a day camping in the woods: an afternoon among the autumn poplars, then dinner together under the lantern-lit canopy.</p>
+                <div class="x-photos">
+                  <figure>
+                    <img src="camping-1.jpg" alt="Eight group members standing in front of a patterned canopy tent among autumn poplar trees" width="1600" height="1199" loading="lazy" />
+                    <figcaption data-zh="林间合影">Group photo among the poplars</figcaption>
+                  </figure>
+                  <figure>
+                    <img src="camping-2.jpg" alt="The group seated around a table at night under a lantern-lit patterned canopy" width="1600" height="916" loading="lazy" />
+                    <figcaption data-zh="帐篷下的晚餐">Dinner under the canopy</figcaption>
+                  </figure>
+                </div>
+              </div>
+            </li>
+          </ol>
         </section>
 
         <section class="section" id="join" data-nav="Join" data-nav-zh="加入我们">
