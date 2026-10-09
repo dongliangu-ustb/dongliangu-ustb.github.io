@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Donglian Gu 顾栋炼 — Professor, USTB</title>
+    <title>Donglian Gu — Professor, USTB</title>
     <link rel="preconnect" href="https://fonts.googleapis.cn" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -193,15 +193,16 @@
         .x-members-sub { margin: 40px 0 20px; font-size: 18px; }
       }
 
-      /* Collaborators: five avatar cards, centred rows when they wrap */
-      .x-collab { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; }
-      .x-collab > li { flex: 0 0 calc((100% - 64px) / 5); }
-      @media (max-width: 960px) { .x-collab > li { flex-basis: calc((100% - 32px) / 3); } }
+      /* Collaborators: eight avatar cards, 4+4 on desktop, 2 per row on tablet and phone */
+      .x-collab { display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 16px; }
+      .x-collab > li { flex: 0 0 calc((100% - 48px) / 4); }
+      @media (max-width: 960px) { .x-collab > li { flex-basis: calc((100% - 16px) / 2); } }
       @media (max-width: 640px) { .x-collab { gap: 12px; } .x-collab > li { flex-basis: calc((100% - 12px) / 2); } }
       .x-collab > li { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px; padding: 24px 16px; background: var(--x-card); border: 1px solid var(--x-line); border-radius: var(--x-r); min-width: 0; }
       .x-av { display: grid; place-items: center; flex: none; width: 72px; height: 72px; border-radius: 50%; object-fit: cover; background: var(--x-sub-fill); border: 1px solid var(--x-line); font-size: 20px; font-weight: 600; letter-spacing: 0.02em; color: var(--x-muted); }
       .x-co-name { font-size: 15px; line-height: 1.35; font-weight: 600; color: var(--x-ink); overflow-wrap: anywhere; }
       .x-co-name small { display: block; margin-top: 2px; font-size: 13px; font-weight: 500; color: var(--x-muted); }
+      .x-brand span:empty, .x-hero h1 .x-cn:empty, .x-co-name small:empty { display: none; }
       .x-co-aff { margin-top: 4px; font-size: 13px; line-height: 1.45; color: var(--x-muted); overflow-wrap: anywhere; }
       @media (max-width: 640px) {
         .x-collab > li { padding: 20px 12px; gap: 10px; }
@@ -320,7 +321,9 @@
       /* Every event: all photos in one row, equal widths, uniform height */
       .x-tl__photos { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: 8px; max-width: 100%; margin-top: 12px; overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: thin; }
       .x-tl__photos img { display: block; width: 100%; min-width: 0; height: clamp(120px, 16vw, 180px); aspect-ratio: auto; object-fit: cover; border: 1px solid var(--x-line); border-radius: 12px; background: var(--x-card); }
+      .x-tl__photos:has(> img:only-child) { grid-auto-columns: min(100%, 320px); }
       @media (max-width: 600px) {
+        .x-tl__photos > img:only-child { height: auto; aspect-ratio: 4 / 3; }
         .x-tl::before { left: 4px; }
         .x-tl > li { grid-template-columns: 1fr; padding-left: 24px; }
         .x-tl > li::before { left: 0; }
@@ -411,7 +414,7 @@
     <div class="page x-page" id="top">
       <header class="x-head">
         <div class="x-wrap x-head__in">
-          <a class="x-brand" href="#top">Donglian Gu<span>顾栋炼</span></a>
+          <a class="x-brand" href="#top">Donglian Gu<span data-zh="顾栋炼"></span></a>
           <nav class="x-navlinks" aria-label="Sections">
             <a href="#about" data-zh="简介">Bio</a>
             <a href="#group" data-zh="课题组">Group</a>
@@ -442,7 +445,7 @@
           </figure>
           <div>
             <p class="x-eyebrow" data-zh="教授 · 北京科技大学">Professor · USTB</p>
-            <h1>Donglian Gu <span class="x-cn">顾栋炼</span></h1>
+            <h1>Donglian Gu <span class="x-cn" data-zh="顾栋炼"></span></h1>
             <p class="x-tagline" data-zh="以人工智能与城市科学，构建气候韧性与安全的城市。">AI + Urban Science for climate-resilient, safer cities.</p>
             <p class="x-affil" data-zh="北京科技大学城镇化与城市安全研究院 教授，城市安全与防灾减灾研究所副所长（主持工作）">Professor; Deputy Director (in charge), Institute of Urban Safety and Disaster Prevention, Research Institute of Urbanization and Urban Safety, University of Science and Technology Beijing (USTB)</p>
             <div class="x-contacts">
@@ -515,20 +518,21 @@
           </div>
           <div>
             <ul class="x-members">
-              <li><img src="st-shi-tao.jpg" alt="史涛" loading="lazy" /><span class="x-m-name">史涛</span><span class="x-m-deg" data-zh="博士研究生">PhD student</span></li>
-              <li><img src="st-fu-jingwei.jpg" alt="傅经纬" loading="lazy" /><span class="x-m-name">傅经纬</span><span class="x-m-deg" data-zh="博士研究生">PhD student</span></li>
-              <li><img src="st-wang-xiyue.jpg" alt="王玺越" loading="lazy" /><span class="x-m-name">王玺越</span><span class="x-m-deg" data-zh="硕士研究生">Master's student</span></li>
-              <li><img src="st-shao-haoran.jpg" alt="邵浩然" loading="lazy" /><span class="x-m-name">邵浩然</span><span class="x-m-deg" data-zh="硕士研究生">Master's student</span></li>
-              <li><img src="st-jin-wenzhe.jpg" alt="靳文哲" loading="lazy" /><span class="x-m-name">靳文哲</span><span class="x-m-deg" data-zh="硕士研究生">Master's student</span></li>
-              <li><img src="st-zhang-wenchong.jpg" alt="张雯翀" loading="lazy" /><span class="x-m-name">张雯翀</span><span class="x-m-deg" data-zh="硕士研究生">Master's student</span></li>
-              <li><img src="st-han-mian.jpg" alt="韩缅" loading="lazy" /><span class="x-m-name">韩缅</span><span class="x-m-deg" data-zh="硕士研究生">Master's student</span></li>
-              <li><img src="st-hu-ziyi.jpg" alt="胡子怡" loading="lazy" /><span class="x-m-name">胡子怡</span><span class="x-m-deg" data-zh="硕士研究生">Master's student</span></li>
-              <li><img src="st-hao-tingting.jpg" alt="郝婷婷" loading="lazy" /><span class="x-m-name">郝婷婷</span><span class="x-m-deg" data-zh="硕士研究生">Master's student</span></li>
+              <li><img src="st-shi-tao.jpg" alt="Tao Shi" data-alt-zh="史涛" loading="lazy" /><span class="x-m-name" data-zh="史涛">Tao Shi</span><span class="x-m-deg" data-zh="博士研究生">PhD student</span></li>
+              <li><img src="st-fu-jingwei.jpg" alt="Jingwei Fu" data-alt-zh="傅经纬" loading="lazy" /><span class="x-m-name" data-zh="傅经纬">Jingwei Fu</span><span class="x-m-deg" data-zh="博士研究生">PhD student</span></li>
+              <li><img src="st-wang-xiyue.jpg" alt="Xiyue Wang" data-alt-zh="王玺越" loading="lazy" /><span class="x-m-name" data-zh="王玺越">Xiyue Wang</span><span class="x-m-deg" data-zh="硕士研究生">Master's student</span></li>
+              <li><img src="st-shao-haoran.jpg" alt="Haoran Shao" data-alt-zh="邵浩然" loading="lazy" /><span class="x-m-name" data-zh="邵浩然">Haoran Shao</span><span class="x-m-deg" data-zh="硕士研究生">Master's student</span></li>
+              <li><img src="st-jin-wenzhe.jpg" alt="Wenzhe Jin" data-alt-zh="靳文哲" loading="lazy" /><span class="x-m-name" data-zh="靳文哲">Wenzhe Jin</span><span class="x-m-deg" data-zh="硕士研究生">Master's student</span></li>
+              <li><img src="st-zhang-wenchong.jpg" alt="Wenchong Zhang" data-alt-zh="张雯翀" loading="lazy" /><span class="x-m-name" data-zh="张雯翀">Wenchong Zhang</span><span class="x-m-deg" data-zh="硕士研究生">Master's student</span></li>
+              <li><img src="st-han-mian.jpg" alt="Mian Han" data-alt-zh="韩缅" loading="lazy" /><span class="x-m-name" data-zh="韩缅">Mian Han</span><span class="x-m-deg" data-zh="硕士研究生">Master's student</span></li>
+              <li><img src="st-hu-ziyi.jpg" alt="Ziyi Hu" data-alt-zh="胡子怡" loading="lazy" /><span class="x-m-name" data-zh="胡子怡">Ziyi Hu</span><span class="x-m-deg" data-zh="硕士研究生">Master's student</span></li>
+              <li><img src="st-hao-tingting.jpg" alt="Tingting Hao" data-alt-zh="郝婷婷" loading="lazy" /><span class="x-m-name" data-zh="郝婷婷">Tingting Hao</span><span class="x-m-deg" data-zh="硕士研究生">Master's student</span></li>
+              <li><img src="st-ge-chang.jpg" alt="Chang Ge" data-alt-zh="葛畅" loading="lazy" /><span class="x-m-name" data-zh="葛畅">Chang Ge</span><span class="x-m-deg" data-zh="本科生">Undergraduate</span></li>
             </ul>
             <h3 class="x-members-sub" data-zh="已毕业">Alumni</h3>
             <ul class="x-members">
-              <li><img src="st-zhang-ning.jpg" alt="张宁" loading="lazy" /><span class="x-m-name">张宁</span><span class="x-m-deg" data-zh="硕士">Master's</span><span class="x-m-note" data-zh="北京市优秀毕业生">Outstanding Graduate of Beijing</span></li>
-              <li><img src="st-shuai-qianwen.jpg" alt="帅倩雯" loading="lazy" /><span class="x-m-name">帅倩雯</span><span class="x-m-deg" data-zh="硕士">Master's</span><span class="x-m-note" data-zh="北京科技大学优秀毕业生">Outstanding Graduate, USTB</span></li>
+              <li><img src="st-zhang-ning.jpg" alt="Ning Zhang" data-alt-zh="张宁" loading="lazy" /><span class="x-m-name" data-zh="张宁">Ning Zhang</span><span class="x-m-deg" data-zh="硕士">Master's</span><span class="x-m-note" data-zh="北京市优秀毕业生">Outstanding Graduate of Beijing</span></li>
+              <li><img src="st-shuai-qianwen.jpg" alt="Qianwen Shuai" data-alt-zh="帅倩雯" loading="lazy" /><span class="x-m-name" data-zh="帅倩雯">Qianwen Shuai</span><span class="x-m-deg" data-zh="硕士">Master's</span><span class="x-m-note" data-zh="北京科技大学优秀毕业生">Outstanding Graduate, USTB</span></li>
             </ul>
           </div>
         </section>
@@ -540,10 +544,13 @@
           </div>
           <div class="x-body">
             <ul class="x-collab">
-              <li><img class="x-av" src="co-yue-qingrui.jpg" alt="" width="72" height="72" loading="lazy" /><div><p class="x-co-name">Qingrui Yue <small>岳清瑞</small></p><p class="x-co-aff" data-zh="北京科技大学">University of Science and Technology Beijing</p></div></li>
+              <li><img class="x-av" src="co-yue-qingrui.jpg" alt="" width="72" height="72" loading="lazy" /><div><p class="x-co-name">Qingrui Yue <small data-zh="岳清瑞"></small></p><p class="x-co-aff" data-zh="北京科技大学">University of Science and Technology Beijing</p></div></li>
               <li><img class="x-av" src="co-kareem-ahsan.jpg" alt="" width="72" height="72" loading="lazy" /><div><p class="x-co-name">Ahsan Kareem</p><p class="x-co-aff" data-zh="美国圣母大学">University of Notre Dame</p></div></li>
-              <li><img class="x-av" src="co-lu-xinzheng.jpg" alt="" width="72" height="72" loading="lazy" /><div><p class="x-co-name">Xinzheng Lu <small>陆新征</small></p><p class="x-co-aff" data-zh="清华大学">Tsinghua University</p></div></li>
-              <li><img class="x-av" src="co-cao-yong.jpg" alt="" width="72" height="72" loading="lazy" /><div><p class="x-co-name">Yong Cao <small>曹勇</small></p><p class="x-co-aff" data-zh="上海交通大学">Shanghai Jiao Tong University</p></div></li>
+              <li><img class="x-av" src="co-lu-xinzheng.jpg" alt="" width="72" height="72" loading="lazy" /><div><p class="x-co-name">Xinzheng Lu <small data-zh="陆新征"></small></p><p class="x-co-aff" data-zh="清华大学">Tsinghua University</p></div></li>
+              <li><img class="x-av" src="co-xu-zhen.jpg" alt="" width="72" height="72" loading="lazy" /><div><p class="x-co-name">Zhen Xu <small data-zh="许镇"></small></p><p class="x-co-aff" data-zh="北京科技大学">University of Science and Technology Beijing</p></div></li>
+              <li><img class="x-av" src="co-cao-yong.jpg" alt="" width="72" height="72" loading="lazy" /><div><p class="x-co-name">Yong Cao <small data-zh="曹勇"></small></p><p class="x-co-aff" data-zh="上海交通大学">Shanghai Jiao Tong University</p></div></li>
+              <li><img class="x-av" src="co-wang-weiping.jpg" alt="" width="72" height="72" loading="lazy" /><div><p class="x-co-name">Weiping Wang <small data-zh="汪伟平"></small></p><p class="x-co-aff" data-zh="同济大学">Tongji University</p></div></li>
+              <li><img class="x-av" src="co-zhang-zhengtao.jpg" alt="" width="72" height="72" loading="lazy" /><div><p class="x-co-name">Zhengtao Zhang <small data-zh="张正涛"></small></p><p class="x-co-aff" data-zh="北京师范大学">Beijing Normal University</p></div></li>
               <li><img class="x-av" src="co-chen-wang.jpg" alt="" width="72" height="72" loading="lazy" /><div><p class="x-co-name">Wang Warren Chen</p><p class="x-co-aff" data-zh="抖音（新加坡）">TikTok, Singapore</p></div></li>
             </ul>
           </div>
@@ -591,8 +598,8 @@
               <li><span class="x-num">7</span><div><p class="x-cite">Z. Xu, X. Tang, Y. Yang, Y. Tian, <b>D. Gu</b>. <span class="x-title">Evacuation performance of occupants at different smoke layer height based on mixed reality.</span> <i>Developments in the Built Environment</i>, 100945, 2026. <a class="x-doi" href="https://doi.org/10.1016/j.dibe.2026.100945" target="_blank" rel="noopener">DOI</a><span class="x-if">IF 8.7</span></p><p class="x-brief" data-zh="利用混合现实实验研究烟气层高度对人员疏散表现的影响。">Uses mixed-reality experiments to measure how smoke-layer height changes occupant evacuation.</p></div></li>
               <li><span class="x-num">8</span><div><p class="x-cite">Z. Xu, Y. Wu, Y. Tian, <b>D. Gu</b>, Q. Yue, X. Lu. <span class="x-title">Long-term urban resilience trajectories following earthquakes.</span> <i>npj Urban Sustainability</i>, 2026. <a class="x-doi" href="https://doi.org/10.1038/s42949-026-00397-y" target="_blank" rel="noopener">DOI</a></p><p class="x-brief" data-zh="追踪城市在大地震后的长期韧性恢复轨迹。">Traces how cities recover over the long term after major earthquakes.</p></div></li>
               <li><span class="x-num">9</span><div><p class="x-cite">Q. Yue, Z. Shi, Z. Xu, K. Liu, L. Zhou, N. Jin, Y. Liu, Y. Tian, J. Zhang, Z. Liu, et al. <span class="x-title">The risk source–risk exposure–mitigation force theory of urban safety and its enabling space–air–ground integrated monitoring technologies.</span> <i>Engineering Cities</i>, 2026. <a class="x-doi" href="https://scholar.google.com/scholar?q=%22The+Risk+Source%E2%80%93Risk+Exposure%E2%80%93Mitigation+Force+Theory+of+Urban+Safety%22" target="_blank" rel="noopener">Scholar</a></p><p class="x-brief" data-zh="将城市安全“源-体-力”理论与天空地一体化监测技术相结合。">Pairs the urban-safety theory with space–air–ground monitoring technologies that put it into practice.</p></div></li>
-              <li><span class="x-num">10</span><div><p class="x-cite"><b>顾栋炼</b>, 邵浩然, 施钟淇, 刘宇舟, 岳清瑞, 李丽, 许镇. <span class="x-title">基于改进时序InSAR技术的填海区地面沉降监测：以中国深圳前海填海区为例.</span> <i>东南大学学报(自然科学版)</i>, 56(8), 1097–1107, 2026. <a class="x-doi" href="http://journal.seu.edu.cn/" target="_blank" rel="noopener" data-zh="期刊">Journal</a></p><p class="x-brief" data-zh="改进时序InSAR技术，监测深圳前海填海区地面沉降。">An improved time-series InSAR method monitors ground settlement on Shenzhen Qianhai's reclaimed land.</p></div></li>
-              <li><span class="x-num">11</span><div><p class="x-cite">史涛, 岳清瑞, 许镇, 金楠, <b>顾栋炼</b>*. <span class="x-title">基于风险源-承灾体-减灾力理论的建筑屋面附属设施风致破坏研究综述.</span> <i>工程力学</i>, 2026. <a class="x-doi" href="https://doi.org/10.6052/j.issn.1000-4750.2025.09.0441" target="_blank" rel="noopener">DOI</a></p><p class="x-brief" data-zh="基于该理论综述建筑屋面附属设施风致破坏研究。">Reviews wind damage to rooftop attachments using the risk source–exposure–mitigation theory.</p></div></li>
+              <li><span class="x-num">10</span><div><p class="x-cite"><span data-zh="<b>顾栋炼</b>, 邵浩然, 施钟淇, 刘宇舟, 岳清瑞, 李丽, 许镇. "><b>D. Gu</b>, H. Shao, Z. Shi, Y. Liu, Q. Yue, L. Li, Z. Xu. </span><span class="x-title" data-zh="基于改进时序InSAR技术的填海区地面沉降监测：以中国深圳前海填海区为例.">Ground subsidence monitoring of reclaimed land based on improved time-series InSAR: A case study of the Qianhai reclamation area, Shenzhen, China.</span> <i data-zh="东南大学学报(自然科学版)">Journal of Southeast University (Natural Science Edition)</i>, 56(8), 1097–1107, 2026. <a class="x-doi" href="http://journal.seu.edu.cn/" target="_blank" rel="noopener" data-zh="期刊">Journal</a></p><p class="x-brief" data-zh="改进时序InSAR技术，监测深圳前海填海区地面沉降。">An improved time-series InSAR method monitors ground settlement on Shenzhen Qianhai's reclaimed land.</p></div></li>
+              <li><span class="x-num">11</span><div><p class="x-cite"><span data-zh="史涛, 岳清瑞, 许镇, 金楠, <b>顾栋炼</b>*. ">T. Shi, Q. Yue, Z. Xu, N. Jin, <b>D. Gu</b>*. </span><span class="x-title" data-zh="基于风险源-承灾体-减灾力理论的建筑屋面附属设施风致破坏研究综述.">A review on wind-induced damage to building rooftop appurtenances based on the risk source–risk exposure–risk mitigation theory.</span> <i data-zh="工程力学">Engineering Mechanics</i>, 2026. <a class="x-doi" href="https://doi.org/10.6052/j.issn.1000-4750.2025.09.0441" target="_blank" rel="noopener">DOI</a></p><p class="x-brief" data-zh="基于该理论综述建筑屋面附属设施风致破坏研究。">Reviews wind damage to rooftop attachments using the risk source–exposure–mitigation theory.</p></div></li>
             </ol>
             <h3 class="x-year">2025</h3>
             <ol class="x-pubs">
@@ -606,9 +613,9 @@
               <li><span class="x-num">19</span><div><p class="x-cite">J. Fu, Z. Xu, Q. Yue, J. Lin, N. Zhang, Y. Zhao, <b>D. Gu</b>. <span class="x-title">A multi-object detection method for building fire warnings through artificial intelligence generated content.</span> <i>Scientific Reports</i>, 15, 18434, 2025. <a class="x-doi" href="https://doi.org/10.1038/s41598-025-02865-4" target="_blank" rel="noopener">DOI</a><span class="x-if">IF 4.9</span></p><p class="x-brief" data-zh="利用AIGC生成数据训练多目标检测模型，实现建筑火灾预警。">Trains fire-warning detectors on AI-generated images to spot multiple fire cues in buildings.</p></div></li>
               <li><span class="x-num">20</span><div><p class="x-cite">Z. Xu, X. Tang, W. Li, Y. Zhao, <b>D. Gu</b>, Y. Tian. <span class="x-title">Human detection with smoke occlusion based on AI-generated images.</span> <i>Journal of Safety Science and Resilience</i>, 100235, 2025. <a class="x-doi" href="https://doi.org/10.1016/j.jnlssr.2025.100235" target="_blank" rel="noopener">DOI</a></p><p class="x-brief" data-zh="基于AI生成图像训练，检测烟气遮挡下的人员。">Detects people hidden by smoke using detectors trained on AI-generated scenes.</p></div></li>
               <li><span class="x-num">21</span><div><p class="x-cite">Y. Wang, X. Lu, S. Rianto, <b>D. Gu</b>*. <span class="x-title">Falling debris from building envelope infill walls impacted by earthquake-induced building collision: Experiment and finite element analysis.</span> <i>Structures</i>, 79, 109523, 2025. <a class="x-doi" href="https://doi.org/10.1016/j.istruc.2025.109523" target="_blank" rel="noopener">DOI</a><span class="x-if">IF 4.9</span></p><p class="x-brief" data-zh="通过试验与有限元分析研究地震碰撞引起的围护填充墙坠物。">Tests and models how building pounding during earthquakes knocks debris off infill walls.</p></div></li>
-              <li><span class="x-num">22</span><div><p class="x-cite"><b>顾栋炼</b>, 张宁, 王玺越, 许镇. <span class="x-title">基于视觉基础模型的无人机航拍图像弱监督语义分割.</span> <i>东南大学学报(自然科学版)</i>, 2025. <a class="x-doi" href="http://journal.seu.edu.cn/" target="_blank" rel="noopener" data-zh="期刊">Journal</a></p><p class="x-brief" data-zh="借助视觉基础模型实现无人机航拍图像弱监督语义分割。">Weakly supervised semantic segmentation of drone imagery powered by vision foundation models.</p></div></li>
+              <li><span class="x-num">22</span><div><p class="x-cite"><span data-zh="<b>顾栋炼</b>, 张宁, 王玺越, 许镇. "><b>D. Gu</b>, N. Zhang, X. Wang, Z. Xu. </span><span class="x-title" data-zh="基于视觉基础模型的无人机航拍图像弱监督语义分割.">Weakly supervised semantic segmentation of UAV aerial images based on vision foundation models.</span> <i data-zh="东南大学学报(自然科学版)">Journal of Southeast University (Natural Science Edition)</i>, 2025. <a class="x-doi" href="http://journal.seu.edu.cn/" target="_blank" rel="noopener" data-zh="期刊">Journal</a></p><p class="x-brief" data-zh="借助视觉基础模型实现无人机航拍图像弱监督语义分割。">Weakly supervised semantic segmentation of drone imagery powered by vision foundation models.</p></div></li>
               <li><span class="x-num">23</span><div><p class="x-cite">Q. Yue, X. Lu, Z. Xu, Z. Shi, Y. Tian, <b>D. Gu</b>, G. Wang. <span class="x-title">The "risk source–risk exposure–mitigation force" theoretical framework for urban safety.</span> <i data-zh="工程力学">Engineering Mechanics</i>, 42(7), 19–27, 2025. <a class="x-doi" href="https://doi.org/10.6052/j.issn.1000-4750.2023.08.0602" target="_blank" rel="noopener">DOI</a></p><p class="x-brief" data-zh="提出“风险源—承灾体—减灾力”城市安全理论框架。">Proposes a unifying theory of urban safety built on risk source, exposure and mitigation capacity.</p></div></li>
-              <li><span class="x-num">24</span><div><p class="x-cite">Z. Wang, G. Han, X. Deng, Q. Yue, H. Zhang, X. Li, M. Li, Y. Tian, <b>D. Gu</b>, Z. Xu, Z. Shi. <span class="x-title">Resilient city construction enabled by digital intelligence technology (数智科技赋能韧性城市建设发展战略研究).</span> <i data-zh="中国工程科学">Strategic Study of CAE</i>, 27(4), 1–12, 2025. <a class="x-doi" href="https://doi.org/10.15302/J-SSCAE-2025.02.004" target="_blank" rel="noopener">DOI</a></p><p class="x-brief" data-zh="研究数智科技赋能我国韧性城市建设的发展战略。">A strategy study on how digital and intelligent technologies can build resilient cities in China.</p></div></li>
+              <li><span class="x-num">24</span><div><p class="x-cite">Z. Wang, G. Han, X. Deng, Q. Yue, H. Zhang, X. Li, M. Li, Y. Tian, <b>D. Gu</b>, Z. Xu, Z. Shi. <span class="x-title" data-zh="Resilient city construction enabled by digital intelligence technology (数智科技赋能韧性城市建设发展战略研究).">Resilient city construction enabled by digital intelligence technology.</span> <i data-zh="中国工程科学">Strategic Study of CAE</i>, 27(4), 1–12, 2025. <a class="x-doi" href="https://doi.org/10.15302/J-SSCAE-2025.02.004" target="_blank" rel="noopener">DOI</a></p><p class="x-brief" data-zh="研究数智科技赋能我国韧性城市建设的发展战略。">A strategy study on how digital and intelligent technologies can build resilient cities in China.</p></div></li>
               <li><span class="x-num">25</span><div><p class="x-cite">G. Han, Z. Xu, Y. Cao, H. Cai, T. Zhi, L. Sun, <b>D. Gu</b>, Y. Tian, Y. Xie, Z. Chang. <span class="x-title">Research on the pathways of information technology empowering cities to enhance disaster resilience.</span> <i>2025 6th International Conference on Internet of Things, Artificial Intelligence and Mechanical Automation (IoTAIMA)</i>, 2025. <a class="x-doi" href="https://doi.org/10.1109/IOTAIMA66468.2025.11212723" target="_blank" rel="noopener">DOI</a></p><p class="x-brief" data-zh="梳理信息技术赋能城市提升抗灾韧性的路径。">Outlines pathways for information technology to strengthen urban disaster resilience.</p></div></li>
             </ol>
             <h3 class="x-year">2024</h3>
@@ -621,7 +628,7 @@
               <li><span class="x-num">31</span><div><p class="x-cite">Z. Xu, Y. Zhu, <b>D. Gu</b>*, Q. Zhou. <span class="x-title">An integrated simulation method for large-scale earthquake-induced falling debris in building groups.</span> <i>Earthquake Engineering &amp; Structural Dynamics</i>, 53(5), 1767–1786, 2024. <a class="x-doi" href="https://doi.org/10.1002/eqe.4090" target="_blank" rel="noopener">DOI</a><span class="x-if">IF 4.9</span></p><p class="x-brief" data-zh="建筑群大规模地震坠物一体化模拟方法。">Simulates earthquake-induced falling debris across entire building groups.</p></div></li>
               <li><span class="x-num">32</span><div><p class="x-cite">Y. Tian, S. Liu, S. Chen, <b>D. Gu</b>*. <span class="x-title">The site-city interaction effect uncertainty on structural responses and its application to fragility analysis of buildings in Shanghai CBD.</span> <i>Structures</i>, 69, 107494, 2024. <a class="x-doi" href="https://doi.org/10.1016/j.istruc.2024.107494" target="_blank" rel="noopener">DOI</a><span class="x-if">IF 4.9</span></p><p class="x-brief" data-zh="研究场地-城市相互作用不确定性对结构响应的影响，并用于上海CBD建筑易损性分析。">Quantifies how site–city interaction uncertainty alters building responses and fragility in Shanghai's CBD.</p></div></li>
               <li><span class="x-num">33</span><div><p class="x-cite">S. Rianto, X. Lu, <b>D. Gu</b>, Z. Xu. <span class="x-title">An end-to-end framework for fire following earthquake simulation at regional scale: A case study on the 2024 Japan Noto Peninsula earthquake.</span> <i>International Journal of Disaster Risk Reduction</i>, 104859, 2024. <a class="x-doi" href="https://doi.org/10.1016/j.ijdrr.2024.104859" target="_blank" rel="noopener">DOI</a><span class="x-if">IF 4.8</span></p><p class="x-brief" data-zh="区域尺度震后火灾端到端模拟框架，以2024年日本能登半岛地震为例。">End-to-end regional simulation of post-earthquake fires, tested on the 2024 Noto Peninsula earthquake.</p></div></li>
-              <li><span class="x-num">34</span><div><p class="x-cite"><b>顾栋炼</b>, 吴小宾, 张庆林, 彭志桢, 刘宜丰, 田源, 陆新征. <span class="x-title">489米超高层建筑抗倒塌分析案例研究.</span> <i>工程力学</i>, 41(4), 106–115, 2024. <a class="x-doi" href="https://doi.org/10.6052/j.issn.1000-4750.2022.04.0349" target="_blank" rel="noopener">DOI</a></p><p class="x-brief" data-zh="489米超高层建筑抗倒塌性能案例分析。">A collapse-resistance case study of a 489 m supertall building.</p></div></li>
+              <li><span class="x-num">34</span><div><p class="x-cite"><span data-zh="<b>顾栋炼</b>, 吴小宾, 张庆林, 彭志桢, 刘宜丰, 田源, 陆新征. "><b>D. Gu</b>, X. Wu, Q. Zhang, Z. Peng, Y. Liu, Y. Tian, X. Lu. </span><span class="x-title" data-zh="489米超高层建筑抗倒塌分析案例研究.">Case study on collapse resistance of a 489-meter supertall building.</span> <i data-zh="工程力学">Engineering Mechanics</i>, 41(4), 106–115, 2024. <a class="x-doi" href="https://doi.org/10.6052/j.issn.1000-4750.2022.04.0349" target="_blank" rel="noopener">DOI</a></p><p class="x-brief" data-zh="489米超高层建筑抗倒塌性能案例分析。">A collapse-resistance case study of a 489 m supertall building.</p></div></li>
             </ol>
             <h3 class="x-year">2023</h3>
             <ol class="x-pubs">
@@ -644,13 +651,13 @@
             <ol class="x-pubs">
               <li><span class="x-num">43</span><div><p class="x-cite">X. Lu, <b>D. Gu</b>, Z. Xu, C. Xiong, Y. Tian. <span class="x-title">CIM-powered multi-hazard simulation framework covering both individual buildings and urban areas.</span> <i>Sustainability</i>, 12(12), 5059, 2020. <a class="x-doi" href="https://doi.org/10.3390/su12125059" target="_blank" rel="noopener">DOI</a><span class="x-if">IF 4.1</span></p><p class="x-brief" data-zh="基于CIM的多灾害模拟框架，覆盖单体建筑与城市区域。">A CIM-based framework simulating multiple hazards from single buildings to whole cities.</p></div></li>
               <li><span class="x-num">44</span><div><p class="x-cite"><b>D. Gu</b>, Z. Zheng, P. Zhao, L. Xie, Z. Xu, X. Lu. <span class="x-title">High-efficiency simulation framework to analyze the impact of exhaust air from COVID-19 temporary hospitals and its typical applications.</span> <i>Applied Sciences</i>, 10(11), 3949, 2020. <a class="x-doi" href="https://doi.org/10.3390/app10113949" target="_blank" rel="noopener">DOI</a><span class="x-if">IF 2.9</span></p><p class="x-brief" data-zh="快速模拟新冠临时医院排风对周边环境的影响。">Rapidly simulates how exhaust air from COVID-19 temporary hospitals disperses into surrounding areas.</p></div></li>
-              <li><span class="x-num">45</span><div><p class="x-cite"><b>顾栋炼</b>, 张银安, 刘华斌, 马友才, 曹晓庆, 吕中一, 解琳琳, 许镇, 徐永嘉, 郑哲, 杨参天, 陆新征. <span class="x-title">新冠肺炎疫情临时医院排风的环境影响快速模拟方法.</span> <i>工程力学</i>, 37(12), 250–256, 2020. <a class="x-doi" href="https://doi.org/10.6052/j.issn.1000-4750.2020.02.0047" target="_blank" rel="noopener">DOI</a></p><p class="x-brief" data-zh="新冠临时医院排风环境影响的快速模拟方法。">Rapid simulation method for the environmental impact of temporary-hospital exhaust air (Chinese-language study).</p></div></li>
-              <li><span class="x-num">46</span><div><p class="x-cite">方东平, 李全旺, 李楠, 王飞, 刘影, <b>顾栋炼</b>, 孙楚津, 潘胜杰, 侯冠杰, 陆新征. <span class="x-title">社区地震安全韧性评估系统及应用示范 (An evaluation system for community seismic resilience and its application in a typical community).</span> <i>工程力学</i>, 37(10), 28–44, 2020. <a class="x-doi" href="https://doi.org/10.6052/j.issn.1000-4750.2019.11.0670" target="_blank" rel="noopener">DOI</a></p><p class="x-brief" data-zh="社区地震安全韧性评估系统及应用示范。">An evaluation system for community seismic resilience, demonstrated in a typical community.</p></div></li>
+              <li><span class="x-num">45</span><div><p class="x-cite"><span data-zh="<b>顾栋炼</b>, 张银安, 刘华斌, 马友才, 曹晓庆, 吕中一, 解琳琳, 许镇, 徐永嘉, 郑哲, 杨参天, 陆新征. "><b>D. Gu</b>, Y. Zhang, H. Liu, Y. Ma, X. Cao, Z. Lyu, L. Xie, Z. Xu, Y. Xu, Z. Zheng, C. Yang, X. Lu. </span><span class="x-title" data-zh="新冠肺炎疫情临时医院排风的环境影响快速模拟方法.">A high-efficiency simulation method for analyzing the impact of exhausted air from temporary hospitals built for the treatment of novel coronavirus pneumonia.</span> <i data-zh="工程力学">Engineering Mechanics</i>, 37(12), 250–256, 2020. <a class="x-doi" href="https://doi.org/10.6052/j.issn.1000-4750.2020.02.0047" target="_blank" rel="noopener">DOI</a></p><p class="x-brief" data-zh="新冠临时医院排风环境影响的快速模拟方法。">Rapid simulation method for the environmental impact of temporary-hospital exhaust air (Chinese-language study).</p></div></li>
+              <li><span class="x-num">46</span><div><p class="x-cite"><span data-zh="方东平, 李全旺, 李楠, 王飞, 刘影, <b>顾栋炼</b>, 孙楚津, 潘胜杰, 侯冠杰, 陆新征. ">D. Fang, Q. Li, N. Li, F. Wang, Y. Liu, <b>D. Gu</b>, C. Sun, S. Pan, G. Hou, X. Lu. </span><span class="x-title" data-zh="社区地震安全韧性评估系统及应用示范 (An evaluation system for community seismic resilience and its application in a typical community).">An evaluation system for community seismic resilience and its application in a typical community.</span> <i data-zh="工程力学">Engineering Mechanics</i>, 37(10), 28–44, 2020. <a class="x-doi" href="https://doi.org/10.6052/j.issn.1000-4750.2019.11.0670" target="_blank" rel="noopener">DOI</a></p><p class="x-brief" data-zh="社区地震安全韧性评估系统及应用示范。">An evaluation system for community seismic resilience, demonstrated in a typical community.</p></div></li>
             </ol>
             <h3 class="x-year">2019</h3>
             <ol class="x-pubs">
-              <li><span class="x-num">47</span><div><p class="x-cite">X. Lu, Q. Cheng, C. Sun, <b>D. Gu</b>, Z. Xu. <span class="x-title">基于动力弹塑性时程分析和实测地面运动的地震破坏力速报系统 (A rapid reporting system of earthquake destructive power based on nonlinear time-history analysis and actual ground motion records).</span> <i>自然灾害学报</i>, 28(3), 34–43, 2019. <a class="x-doi" href="https://doi.org/10.13577/j.jnd.2019.0305" target="_blank" rel="noopener">DOI</a></p><p class="x-brief" data-zh="基于动力弹塑性时程分析与实测地震动的地震破坏力速报系统。">Rapidly reports an earthquake's damage potential by running nonlinear analyses on recorded ground motions.</p></div></li>
-              <li><span class="x-num">48</span><div><p class="x-cite">X. Lu, <b>D. Gu</b>, J. Zhou, L. Bao, P. Qian, X. Lu, Y. Lin. <span class="x-title">改变框架-核心筒结构剪力调整策略对其抗震性能影响的研究 (Influence of changing shear adjustment strategy on aseismic performance of frame-core tube structure).</span> <i>工程力学</i>, 36(1), 183–191, 2019. <a class="x-doi" href="https://doi.org/10.6052/j.issn.1000-4750.2017.11.0853" target="_blank" rel="noopener">DOI</a></p><p class="x-brief" data-zh="研究剪力调整策略对框架-核心筒结构抗震性能的影响。">Examines how shear-adjustment strategies change the seismic performance of frame–core-tube buildings.</p></div></li>
+              <li><span class="x-num">47</span><div><p class="x-cite">X. Lu, Q. Cheng, C. Sun, <b>D. Gu</b>, Z. Xu. <span class="x-title" data-zh="基于动力弹塑性时程分析和实测地面运动的地震破坏力速报系统 (A rapid reporting system of earthquake destructive power based on nonlinear time-history analysis and actual ground motion records).">A rapid reporting system of earthquake destructive power based on nonlinear time-history analysis and actual ground motion records.</span> <i data-zh="自然灾害学报">Journal of Natural Disasters</i>, 28(3), 34–43, 2019. <a class="x-doi" href="https://doi.org/10.13577/j.jnd.2019.0305" target="_blank" rel="noopener">DOI</a></p><p class="x-brief" data-zh="基于动力弹塑性时程分析与实测地震动的地震破坏力速报系统。">Rapidly reports an earthquake's damage potential by running nonlinear analyses on recorded ground motions.</p></div></li>
+              <li><span class="x-num">48</span><div><p class="x-cite">X. Lu, <b>D. Gu</b>, J. Zhou, L. Bao, P. Qian, X. Lu, Y. Lin. <span class="x-title" data-zh="改变框架-核心筒结构剪力调整策略对其抗震性能影响的研究 (Influence of changing shear adjustment strategy on aseismic performance of frame-core tube structure).">Influence of changing shear adjustment strategy on aseismic performance of frame-core tube structure.</span> <i data-zh="工程力学">Engineering Mechanics</i>, 36(1), 183–191, 2019. <a class="x-doi" href="https://doi.org/10.6052/j.issn.1000-4750.2017.11.0853" target="_blank" rel="noopener">DOI</a></p><p class="x-brief" data-zh="研究剪力调整策略对框架-核心筒结构抗震性能的影响。">Examines how shear-adjustment strategies change the seismic performance of frame–core-tube buildings.</p></div></li>
               <li><span class="x-num">49</span><div><p class="x-cite">X. Lu, K. Lin, <b>D. Gu</b>, Y. Li. <span class="x-title">Experimental study of novel concrete frames considering earthquake and progressive collapse.</span> In: <i>Concrete Structures in Earthquake</i> (Springer), pp. 29–45, 2019. <a class="x-doi" href="https://doi.org/10.1007/978-981-13-3278-4_3" target="_blank" rel="noopener">DOI</a></p><p class="x-brief" data-zh="兼顾抗震与抗连续倒塌的新型混凝土框架试验研究。">Tests new RC frame detailing that resists both earthquakes and progressive collapse.</p></div></li>
               <li><span class="x-num">50</span><div><p class="x-cite">X. Lu, <b>D. Gu</b>, Z. Xu, X. Zeng. <span class="x-title">Seismic loss assessment for buildings with multiple LOD BIM data.</span> <i>13th International Conference on Applications of Statistics and Probability in Civil Engineering (ICASP13)</i>, Seoul, 2019. <a class="x-doi" href="https://s-space.snu.ac.kr/discover?query=%22Seismic+loss+assessment+for+buildings+with+multiple+LOD+BIM+data%22" target="_blank" rel="noopener" data-zh="论文">Paper</a></p><p class="x-brief" data-zh="基于多细度BIM数据的建筑地震损失评估。">Assesses building seismic losses using BIM data at multiple levels of detail.</p></div></li>
             </ol>
@@ -658,7 +665,7 @@
             <ol class="x-pubs">
               <li><span class="x-num">51</span><div><p class="x-cite">Q. Yang, X. Lu, C. Yu, <b>D. Gu</b>. <span class="x-title">Experimental study and finite element analysis of energy dissipating outriggers.</span> <i>Advances in Structural Engineering</i>, 20(8), 1196–1209, 2017. <a class="x-doi" href="https://doi.org/10.1177/1369433216677122" target="_blank" rel="noopener">DOI</a><span class="x-if">IF 2.5</span></p><p class="x-brief" data-zh="耗能伸臂的试验与有限元分析。">Tests and models energy-dissipating outriggers that protect tall buildings in earthquakes.</p></div></li>
               <li><span class="x-num">52</span><div><p class="x-cite">K. Lin, <b>D. Gu</b>, X. Lu, Y. Li. <span class="x-title">Experimental studies on a novel structural detailing of RC frames to resist earthquake and progressive collapse.</span> <i>IABSE Symposium</i>, Vancouver. <i>IABSE Reports</i>, 109, 88–95, 2017. <a class="x-doi" href="https://doi.org/10.2749/vancouver.2017.0088" target="_blank" rel="noopener">DOI</a></p><p class="x-brief" data-zh="抗震与抗连续倒塌新型钢筋混凝土框架构造的试验研究。">Conference study of the new RC frame detailing against earthquake and progressive collapse.</p></div></li>
-              <li><span class="x-num">53</span><div><p class="x-cite">X. Lu, X. Lu, M. Li, <b>D. Gu</b>, L. Xie. <span class="x-title">Influence of seismic action adjustments on seismic design and safety of RC frames.</span> <i>工程力学</i>, 34(4), 22–31, 2017. <a class="x-doi" href="https://doi.org/10.6052/j.issn.1000-4750.2016.11.0871" target="_blank" rel="noopener">DOI</a></p><p class="x-brief" data-zh="研究地震作用调整对钢筋混凝土框架抗震设计与安全的影响。">Studies how adjusting seismic actions affects the design and safety of RC frames.</p></div></li>
+              <li><span class="x-num">53</span><div><p class="x-cite">X. Lu, X. Lu, M. Li, <b>D. Gu</b>, L. Xie. <span class="x-title">Influence of seismic action adjustments on seismic design and safety of RC frames.</span> <i data-zh="工程力学">Engineering Mechanics</i>, 34(4), 22–31, 2017. <a class="x-doi" href="https://doi.org/10.6052/j.issn.1000-4750.2016.11.0871" target="_blank" rel="noopener">DOI</a></p><p class="x-brief" data-zh="研究地震作用调整对钢筋混凝土框架抗震设计与安全的影响。">Studies how adjusting seismic actions affects the design and safety of RC frames.</p></div></li>
             </ol>
             </div>
             <p class="x-if-note" data-zh="IF：JCR 2025 年度影响因子（2026 年发布）">IF: Journal Citation Reports 2025 impact factor (released 2026).</p>
@@ -763,12 +770,45 @@
               <li>
                 <p class="x-when"><time datetime="2026-10-07" data-zh="2026年10月7日">Oct 7, 2026</time></p>
                 <div>
-                  <h4 data-zh="秋日露营">Autumn camping</h4>
+                  <h4 data-zh="昌平露营">Camping in Changping</h4>
                   <div class="x-tl__photos">
                     <img src="camping-1.jpg" alt="Eight group members standing in front of a patterned canopy tent among autumn poplar trees" data-alt-zh="八名课题组成员在秋日杨树林中的花纹天幕前合影" width="1600" height="1199" loading="lazy" />
                     <img src="camping-2.jpg" alt="The group seated around a table at night under a lantern-lit patterned canopy" data-alt-zh="夜晚灯光下，大家围坐在花纹天幕下的桌旁" width="1600" height="916" loading="lazy" />
                     <img src="camping-3.jpg" alt="Grilling under the canopy" data-alt-zh="天幕下烤肉" loading="lazy" />
                     <img src="camping-4.jpg" alt="Dinner around the table" data-alt-zh="围桌聚餐" loading="lazy" />
+                  </div>
+                </div>
+              </li>
+              <li>
+                <p class="x-when"><time datetime="2026-06-25" data-zh="2026年6月25日">Jun 25, 2026</time></p>
+                <div>
+                  <h4 data-zh="北京环球影城">Universal Beijing Resort</h4>
+                  <div class="x-tl__photos">
+                    <img src="usj26-1.jpg" alt="The whole group in front of the Universal globe" data-alt-zh="全组在环球地球仪前合影" width="1600" height="900" loading="lazy" />
+                    <img src="usj26-2.jpg" alt="Lunch together by the lakeside windows" data-alt-zh="湖畔餐厅里一起午餐" width="1600" height="1200" loading="lazy" />
+                    <img src="usj26-3.jpg" alt="A group selfie in the ride queue" data-alt-zh="排队时的全组自拍" width="1600" height="900" loading="lazy" />
+                    <img src="usj26-4.jpg" alt="Raising glasses across the table" data-alt-zh="餐桌上举杯相碰" width="1200" height="1600" loading="lazy" />
+                  </div>
+                </div>
+              </li>
+              <li>
+                <p class="x-when"><time datetime="2025-05-05" data-zh="2025年5月5日">May 5, 2025</time></p>
+                <div>
+                  <h4 data-zh="密室逃脱">Escape room</h4>
+                  <div class="x-tl__photos">
+                    <img src="escape25-1.jpg" alt="Group selfie on an evening street after the escape room" data-alt-zh="密室逃脱后夜晚街头合影" width="1600" height="1200" loading="lazy" />
+                  </div>
+                </div>
+              </li>
+              <li>
+                <p class="x-when"><time datetime="2024-01-09" data-zh="2024年1月9日">Jan 9, 2024</time></p>
+                <div>
+                  <h4 data-zh="北京环球影城">Universal Beijing Resort</h4>
+                  <div class="x-tl__photos">
+                    <img src="usj24-1.jpg" alt="Four members holding plush toys" data-alt-zh="四位同学抱着玩偶合影" width="800" height="600" loading="lazy" />
+                    <img src="usj24-2.jpg" alt="Four members by the lake" data-alt-zh="湖边合影" width="1600" height="1200" loading="lazy" />
+                    <img src="usj24-3.jpg" alt="Selfie in the ride queue" data-alt-zh="排队时自拍" width="1600" height="1200" loading="lazy" />
+                    <img src="usj24-4.jpg" alt="Three members in front of the resort hotel" data-alt-zh="酒店前三人合影" width="800" height="600" loading="lazy" />
                   </div>
                 </div>
               </li>
@@ -778,7 +818,7 @@
       </main>
 
       <footer class="x-foot">
-        <div class="x-wrap"><p>© 2026 Donglian Gu 顾栋炼</p></div>
+        <div class="x-wrap"><p data-zh="© 2026 顾栋炼 Donglian Gu">© 2026 Donglian Gu</p></div>
       </footer>
     </div>
     <script src="site.js"></script>
@@ -787,7 +827,7 @@
         var root = document.documentElement;
         /* Number publications in page order, so new papers can be added anywhere */
         document.querySelectorAll(".x-pubs .x-num").forEach(function (el, i) { el.textContent = i + 1; });
-        var titles = { en: "Donglian Gu 顾栋炼 — Professor, USTB", zh: "顾栋炼 — 北京科技大学 教授" };
+        var titles = { en: "Donglian Gu — Professor, USTB", zh: "顾栋炼 — 北京科技大学 教授" };
         function setLang(lang) {
           document.querySelectorAll("[data-zh]").forEach(function (el) {
             if (!el.hasAttribute("data-en")) el.setAttribute("data-en", el.innerHTML);
